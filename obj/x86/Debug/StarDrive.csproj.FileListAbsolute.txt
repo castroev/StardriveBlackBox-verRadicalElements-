@@ -1,0 +1,2 @@
+C:\Program Files (x86)\Steam\SteamApps\common\StarDrive Redux\StarDrive.exe.config
+D:\Program Files (x86)\Steam\SteamApps\common\StarDrive Redux\StarDrive.exe.config

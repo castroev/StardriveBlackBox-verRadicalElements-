@@ -1,0 +1,880 @@
+data/Ship_Game/UniverseScreen.cs.d
+data/Ship_Game/Gameplay/Loot.cs.i
+data/Ship_Game/RaceDesignScreen.cs.i
+data/Ship_Game/GameplayMMScreen.cs.i
+data/Content/Weapons/PDLaser.xml.i
+data/Ship_Game/UniverseScreen.cs.i
+data/Content/Textures/UI/icon_pop_22.xnb.i
+data/Content/StarterShips/Retribution-Class Mk Ib Assault.xml.i
+data/Content/StarterShips/CT-Light Plasma.xml.i
+data/Ship_Game/ExceptionViewer.resx.i
+data/Ship_Game/QuadTree.cs.i
+data/Ship_Game/ShipDesignScreen.cs.d
+data/Content/StarterShips/Creeper Transport.xml.i
+data/Content/ShipModules/RemnantSmallReactor.xml.i
+data/Content/Technology/ReactionDrive.xml.i
+data/Ship_Game/OptionsScreen.cs.i
+data/Content/Technology/MissileArmor.xml.i
+data/Ship_Game/Gameplay/RoadNode.cs.i
+data/Content/StarterShips/FF-Plasma Strike T.xml.i
+data/Content/Technology/SlipstreamProjection.xml.i
+data/bin/Release/StarDrive.exe.config.i
+data/Ship_Game/Gameplay/RacialTraits.cs.i
+data/Content/Technology/EMP Cannons.xml.i
+data/_UpgradeReport_Files/UpgradeReport_Warning.png.i
+data/Ship_Game/ScreenManager.cs.i
+data/Content/ShipModules/AncientShield2kw.xml.i
+data/Content/Technology/Quantum Torpedo Cannon.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_military_hover.xnb.i
+data/Content/ShipModules/Maneuvering_Thruster_4x4.xml.i
+data/Content/StarterShips/T7-LSR 42.xml.i
+data/Ship_Game/Gameplay/DroneAI.cs.i
+data/Content/ShipModules/ColonyModule.xml.i
+data/Content/Technology/Armor.xml.i
+data/Ship_Game/BuildingCategory.cs.i
+data/Content/ShipModules/PulseBombBay.xml.i
+data/Content/ShipModules/Range_Thruster_4x4.xml.i
+data/Content/Textures/SelectionBox/icon_formation_bleft.xnb.i
+data/Content/ShipModules/MissileLauncher1x3.xml.i
+data/.hgtags.i
+data/Ship_Game/ReplayElement.cs.i
+data/Ship_Game/MainDiplomacyScreen.cs.i
+data/Content/Technology/Energy.xml.i
+data/Ship_Game/GlobalStats.cs.i
+data/Content/ShipModules/CIC.xml.i
+data/Content/NameGenerators/spynames_Vulfen.txt.i
+data/Ship_Game/FTL.cs.i
+data/Ship_Game/Gameplay/MilitaryTask.cs.i
+data/Content/Races/Vulfen.xml.i
+data/Ship_Game/Gameplay/ModuleSlot.cs.i
+data/Content/Technology/Integrated Systems.xml.i
+data/Ship_Game/YouWinScreen.cs.i
+data/Ship_Game/Screens/EarthClass.cs.i
+data/Content/ShipModules/MRLS.xml.i
+data/Content/ShipModules/MarineBarracks2x2.xml.i
+data/Content/StarterShips/Adv Zion Laser.xml.i
+data/Ship_Game/Config.cs.i
+data/Content/Buildings/Capital.xml.i
+data/Content/ShipModules/DisruptorTurret.xml.i
+data/StarTrek-SA.ico.i
+data/Content/ShipRoles/Prototype.xml.i
+data/StarDrive.csproj.i
+data/Ship_Game/Entry.cs.i
+data/CustomCursor.cs.i
+data/Icons/StarTrek-SA.ico.i
+data/Ship_Game/NebulousOverlay.cs.i
+data/Content/ShipModules/PlaSteelArmorMed.xml.i
+data/StarDrive.csproj.orig.i
+data/Ship_Game/Header.cs.i
+data/Ship_Game/Explosion.cs.i
+data/Content/Technology/HeavyFighterHull.xml.i
+data/Content/ShipModules/Phalanx PD.xml.i
+data/Content/ShipModules/WarpCore.xml.i
+data/Ship_Game/Gameplay/TraitEntry.cs.i
+data/Content/ShipModules/TractorBeam2x3.xml.i
+data/Ship_Game/DimensionalPrison.cs.i
+data/Content/Technology/Xeno Computing.xml.i
+data/packages/fasterflect.2.1.3/lib/net40/Fasterflect.XML.i
+data/Content/Technology/MissileTheory.xml.i
+data/Content/Technology/Armor Piercing.xml.i
+data/Content/ShipModules/RocketLauncher.xml.i
+data/Content/StarterShips/Ralyeh Prototype.xml.i
+data/Ship_Game/Gameplay/TrustEntryType.cs.i
+data/Content/Technology/Xeno Intelligence.xml.i
+data/packages/fasterflect.2.1.3/fasterflect.2.1.3.nupkg.i
+data/Ship_Game/PlanetGridSquare.cs.i
+data/Content/ShipModules/FlakTurret.xml.i
+data/Ship_Game/Response.cs.i
+data/Content/Technology/Guided Missiles.xml.i
+data/Ship_Game/Outcome.cs.i
+data/Ship_Game/DanProgressBar.cs.i
+data/Content/Technology/Titans.xml.i
+data/Content/ShipModules/Pulse Capacitor.xml.i
+data/Content/Fonts/Arial11Bold.xnb.i
+data/Content/ShipModules/OrdnanceLocker.xml.i
+data/Content/Technology/Assimilation.xml.i
+data/Content/ShipRoles/Station.xml.i
+data/Content/ShipModules/SiphonBeamTurret2x2.xml.i
+data/Ship_Game/GameScreen.cs.i
+data/Ship_Game/SystemDefenseAnalyzer.cs.i
+data/Ship_Game/ShipData.cs.i
+data/Content/StarterShips/StarBase.xml.i
+data/Content/StarterShips/Zion R.xml.i
+data/Content/ShipModules/Combat_Thruster_1x1.xml.i
+data/Content/StarterShips/Kulrathi Assault Ship.xml.i
+data/Content/ShipModules/WarpEngine_4x4.xml.i
+data/Ship_Game/Anomaly.cs.i
+data/Ship_Game/HelperFunctions.cs.i
+data/Ship_Game/ExceptionTracker.cs.i
+data/Content/Technology/Colonization.xml.i
+data/Content/ShipModules/Fabricator.xml.i
+data/Ship_Game/UpdateContext.cs.i
+data/Ship_Game/CombatAI.cs.i
+data/Content/Tooltips/Tooltips.xml.i
+data/Ship_Game/AgentMissionData.cs.i
+data/Ship_Game/Gameplay/GSAI.cs.d
+data/Ship_Game/HaloTestScreen.cs.i
+data/Ship_Game/Background.cs.i
+data/Ship_Game/HullBonus.cs.i
+data/Ship_Game/MethodUtil.cs.i
+data/Ship_Game/Gameplay/Projectile.cs.rej.i
+data/Content/Technology/FuelCell1.xml.i
+data/Ship_Game/History.cs.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_dip_hover.xnb.i
+data/Ship_Game/Mole.cs.i
+data/Content/SolarSystems/Random/BlackBox.xml.i
+data/Ship_Game/UnownedPlanetScreen.cs.i
+data/Content/Technology/CombatReadiness.xml.i
+data/Content/ShipModules/Main Engineering.xml.i
+data/Content/ShipModules/power_capacitor_1x1.xml.i
+data/Content/Technology/CanopyShields.xml.i
+data/Content/Races/Cordrazine.xml.i
+data/Content/Technology/SubspaceTheory.xml.i
+data/packages/fasterflect.2.1.3/lib/net35/Fasterflect.dll.i
+data/Content/ShipModules/Range_Thruster_3x3.xml.i
+data/Ship_Game/TechnologyType.cs.i
+data/Content/ShipRoles/Troop.xml.i
+data/Content/Buildings/Outpost.xml.i
+data/UpgradeLog.XML.i
+data/Ship_Game/Gameplay/AO.cs.i
+data/Content/ShipModules/MiningLaser.xml.i
+data/Content/ShipModules/Powerplant_nuke_2x2.xml.i
+data/QuadTree.cs.i
+data/packages/repositories.config.i
+data/Content/ShipModules/IonBeam2x3.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_dip_pressed.xnb.i
+data/Content/ShipModules/LaserCannon.xml.i
+data/Content/EconomicResearchStrategy/Industrialists.xml.i
+data/Content/Textures/StatusIcons/icon_gravwell.xnb.i
+data/Content/ShipModules/ConventionalTorpedo.xml.i
+data/Ship_Game/Direction.cs.i
+data/Content/Weapons/DualPhotonCannon.xml.i
+data/Ship_Game/FleetDesignScreen.cs.i
+data/Content/StarterShips/DD-ION Support.xml.i
+data/Content/StarterShips/Prototype Fern.xml.i
+data/Content/Localization/English/GameText_EN.xml.i
+data/Ship_Game/MenuScreen.cs.i
+data/Backup/icon_formation_aft.xnb.i
+data/packages/fasterflect.2.1.3/fasterflect.2.1.3.nupkg.d
+data/Content/NameGenerators/spynames_Ralyeh.txt.i
+data/Ship_Game/DesignAction.cs.i
+data/Content/Textures/TacticalIcons/symbol_prototype.xnb.i
+data/Ship_Game/ShipModuleNode.cs.i
+data/Ship_Game/Disc.cs.i
+data/Content/ShipModules/FusionBeam2x3.xml.i
+data/Ship_Game/Gameplay/DiplomaticTraits.cs.i
+data/Content/Technology/SubspatialDynamics.xml.i
+data/Content/NameGenerators/spynames_Kulrathi.txt.i
+data/Content/EconomicResearchStrategy/Militarists.xml.i
+data/Content/Textures/Minimap/button_C_hover.xnb.i
+data/Ship_Game/Menu1.cs.i
+data/Ship_Game/SortButton.cs.i
+data/Ship_Game/Gameplay/DialogOption.cs.i
+data/Content/ShipModules/FlakTurret3x3.xml.i
+data/Ship_Game/Gameplay/SpaceRoad.cs.i
+data/Content/StarterShips/Cordrazine Prototype.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_68px_menu_pressed.xnb.i
+data/Content/Technology/HeavyShields.xml.i
+data/Ship_Game/StatTracker.cs.i
+data/Content/ShipModules/SubspaceSensors.xml.i
+data/Ship_Game/WarState.cs.i
+data/Content/ShipModules/DisintegratorArray.xml.i
+data/Content/Fonts/Verdana10.xnb.i
+data/Content/Technology/XenoGenetics.xml.i
+data/Ship_Game/Universe/ShipSpatialManager.cs.i
+data/Content/ShipModules/Quantanium_1x1.xml.i
+data/.hgflow.i
+data/Ship_Game/Operation.cs.i
+data/Ship_Game/AutomationWindow.cs.i
+data/Ship_Game/Universe/Ships/ShipModuleType.cs.i
+data/Content/ShipModules/WarpEngine_1x1.xml.i
+data/Ship_Game/GenericBlackBar.cs.i
+data/Content/Textures/UI/icon_kills_shipUI.xnb.i
+data/Ship_Game/Gameplay/TrustEntry.cs.i
+data/StarDrive.vshost.exe.config.i
+data/Ship_Game/SerializableDictionary_TKey, TValue_.cs.i
+data/Content/StarterShips/PT-SpaceShell.xml.i
+data/Ship_Game/Gameplay/ShipSpatialManager.cs.i
+data/Content/Technology/Pulse Capacitors.xml.i
+data/Ship_Game/Quad.cs.i
+data/Ship_Game/Planet.cs.i
+data/Content/StarterShips/Fusion Assault Acolyte.xml.i
+data/Ship_Game/PrimitiveQuad.cs.i
+data/Content/ShipModules/SiphonBeam2x3.xml.i
+data/Ship_Game/LoadSaveScreen.cs.i
+data/Content/Textures/NewUI/icon_order_explore.xnb.i
+data/obj/x86/Debug/Properties.Resources.resources.i
+data/Content/ShipModules/Broadside_Flak_3x2.xml.i
+data/Particle3DSample/ParticleEmitter.cs.i
+data/Ship_Game/Universe/Beam.cs.i
+data/Ship_Game/DropDownMenu.cs.i
+data/Content/ShipModules/engine_fighter_1x1.xml.i
+data/Content/NameGenerators/spynames_Humans.txt.i
+data/Ship_Game/Artifact.cs.i
+data/Ship_Game/FleetDataNode.cs.i
+data/Content/Technology/Ancient Shield Technology.xml.i
+data/Ship_Game/Gameplay/ArtificialIntelligence.cs.d
+data/Ship_Game/Bomb.cs.i
+data/Icons/icon_formation_aft.xnb.i
+data/Ship_Game/Gameplay/Weapon.cs.i
+data/Ship_Game/Gameplay/Fleet.cs.i
+data/Ship_Game/Checkbox.cs.i
+data/Ship_Game/Gameplay/ArtificialIntelligence.cs.i
+data/Content/NameGenerators/spynames_Cordrazine.txt.i
+data/Content/Textures/Minimap/button_normal.xnb.i
+data/Ship_Game/BackgroundItem.cs.i
+data/Ship_Game/Gameplay/CombatState.cs.i
+data/Content/Textures/NewUI/icon_order_patrol.xnb.i
+data/Content/ShipModules/PowerConduit.xml.i
+data/Content/Textures/NewUI/icon_projection.xnb.i
+data/Properties/Resources.Designer.cs.i
+data/Content/ShipModules/MissileLauncher3x3.xml.i
+data/Content/StarterShips/Type V Prototype.xml.i
+data/Ship_Game/OrbitalBeam.cs.i
+data/Ship_Game/InputState.cs.i
+data/Content/StarterShips/ZFF-Plasma Rot.xml.i
+data/Content/Textures/Minimap/button_active.xnb.i
+data/Ship_Game/SpaceRect.cs.i
+data/Content/Technology/Torpedo.xml.i
+data/Ship_Game/OrdersButton.cs.i
+data/Content/Technology/Terraforming.xml.i
+data/Ship_Game/Gameplay/Restrictions.cs.i
+data/Content/StarterShips/Phasor Assault Acolyte.xml.i
+data/Content/ShipModules/ThalaronBeam2x3.xml.i
+data/Ship_Game/UITextEntry.cs.i
+data/Game.ico.i
+data/Content/StarterShips/Zion Raider.xml.i
+data/Ship_Game/Gameplay/Posture.cs.i
+data/Ship_Game/HelpTopic.cs.i
+data/ShipType.cs.i
+data/Ship_Game/PlanetDefenseAnalyzer.cs.i
+data/.hgignore.orig.i
+data/Content/NameGenerators/spynames_Opteris.txt.i
+data/Ship_Game/ModuleHeader.cs.i
+data/Content/ShipModules/Railgun1x3.xml.i
+data/Ship_Game/Universe/Bomb.cs.i
+data/Content/ShipModules/BigCannon.xml.i
+data/Ship_Game/SolarSystem.cs.i
+data/Ship_Game/ExplosionManager.cs.i
+data/Content/Textures/NewUI/icon_sensors.xnb.i
+data/Ship_Game/Encounter.cs.i
+data/Content/ShipModules/FighterbombEnergy_1x2.xml.i
+data/Ship_Game/Difficulty.cs.i
+data/Ship_Game/Body.cs.i
+data/Content/NameGenerators/names.txt.i
+data/Backup/StarDrive.sln.i
+data/Content/Technology/ArmorTheory.xml.i
+data/Ship_Game/ShipDesignScreen.cs.orig.i
+data/Content/ShipModules/SteelArmorLarge.xml.i
+data/Ship_Game/Message.cs.i
+data/Content/ShipModules/AncientRepulsor.xml.i
+data/Content/Technology/EMPTorpedo.xml.i
+data/Content/Technology/Polaron Cannons.xml.i
+data/Content/Technology/Tractor Beam.xml.i
+data/Content/Technology/Aeroponics.xml.i
+data/README.md.i
+data/Content/ShipModules/EMPTurret2x2.xml.i
+data/Ship_Game/Universe/Projectile.cs.i
+data/Ship_Game/SimpleDelegate.cs.i
+data/Ship_Game/Moon.cs.i
+data/Ship_Game/Universe/Ships/ModuleSlotData.cs.i
+data/Content/StarterShips/Zion Railer.xml.i
+data/Ship_Game/WeaponTagModifier.cs.i
+data/Ship_Game/Universe/ShipModule.cs.i
+data/Content/ShipModules/Fighter Shield.xml.i
+data/Ship_Game/EmpireManager.cs.i
+data/Content/ShipModules/Reinforced Bulkhead.xml.i
+data/Content/Textures/UI/node_inhibit.xnb.i
+data/Content/ShipUpkeep/ShipUpkeep.xml.i
+data/Content/NameGenerators/spynames_Draylok.txt.i
+data/Content/Technology/Ancient Repulsor.xml.i
+data/Content/Textures/SelectionBox/icon_formation_bright.xnb.i
+data/Ship_Game/SystemInfoUIElement.cs.i
+data/Ship_Game/RandomEventManager.cs.i
+data/Content/StarterShips/Prototype Frigate.xml.i
+data/Ship_Game/WeightSlider.cs.i
+data/Content/Buildings/Tracking Station.xml.i
+data/Content/SolarSystems/Random/Banned.xml.i
+data/Particle3DSample/packages/fasterflect.2.1.3/lib/net40/Fasterflect.XML.i
+data/StarDrive.jcsettings.xml.i
+data/Ship_Game/PlanetListScreen.cs.i
+data/Content/ShipRoles/Scout.xml.i
+data/Ship_Game/Gameplay/DialogLine.cs.i
+data/Content/Textures/UI/node_shiprange.xnb.i
+data/Ship_Game/RandomNumberGenerator.cs.i
+data/Ship_Game/PieMenu.cs.i
+data/Ship_Game/test.cs.i
+data/Ship_Game/GameplayObject.cs.i
+data/Content/StarterShips/Acolyte of Flak.xml.i
+data/Icons/blackbox.ico.i
+data/Ship_Game/RuleOptionsScreen.cs.i
+data/Content/StarterShips/Missile Acolyte II.xml.i
+data/Content/ShipRoles/Construction.xml.i
+data/Content/Races/Pollops.xml.i
+data/Ship_Game/LocalizationFile.cs.i
+data/Content/NameGenerators/spynames_Pollops.txt.i
+data/Content/Races/Human.xml.i
+data/Content/Technology/Ace Training.xml.i
+data/Content/StarterShips/T7-48CV.xml.i
+data/Properties/AssemblyInfo.cs.i
+data/Ship_Game/SkinnableButton.cs.i
+data/Content/Textures/NewUI/icon_order_patrol_hover2.xnb.i
+data/Ship_Game/Primitives2D.cs.i
+data/Content/Textures/Arcs/Arc360.xnb.i
+data/Ship_Game/FTLManager.cs.i
+data/Ship_Game/Building.cs.i
+data/Microsoft.Xna.Framework.RuntimeProfile.i
+data/Content/Technology/IS Government.xml.i
+data/Content/Technology/EnergyShielding.xml.i
+data/Content/Textures/NewUI/icon_order_explore_hover2.xnb.i
+data/Ship_Game/ShipDesignScreen.cs.orig.rej.i
+data/Content/Technology/Shipboard Medicine.xml.i
+data/Content/Textures/Arcs/Arc120.xnb.i
+data/Ship_Game/Gameplay/AIState.cs.i
+data/StarDrive.sln.orig.orig.i
+data/_UpgradeReport_Files/UpgradeReport_Success.png.i
+data/Particle3DSample/packages/repositories.config.i
+data/Content/ShipModules/PhasorTurret2x2.xml.i
+data/Content/StarterShips/PLT-Defender.xml.i
+data/Content/ShipRoles/Frigate.xml.i
+data/Content/Technology/Biospheres.xml.i
+data/Content/StarterShips/Owlwok Freighter L.xml.i
+data/Content/ShipModules/MediumFuelCell.xml.i
+data/Content/Textures/UI/icon_experience_shipUI.xnb.i
+data/Content/Technology/PlasmaThrowers.xml.i
+data/Ship_Game/Gameplay/StatementSet.cs.i
+data/Content/StarterShips/CT-Flames.xml.i
+data/Ship_Game/RacialTrait.cs.i
+data/Content/Technology/Energy Weapons.xml.i
+data/Content/Races/Ralyeh.xml.i
+data/Ship_Game/Gameplay/Ship.cs.i
+data/obj/x86/Release/StarDrive.csproj.GenerateResource.Cache.i
+data/Ship_Game/Gameplay/QuestType.cs.i
+data/Ship_Game/MuzzleFlash.cs.i
+data/Resources/StarTrek-SA.ico.i
+data/Content/ShipRoles/Capital.xml.i
+data/Content/ShipModules/IonBeamTurret2x2.xml.i
+data/Content/StarterShips/FF-Plasma Scythe.xml.i
+data/Ship_Game/SizeSlider.cs.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_132px_menu_hover.xnb.i
+data/Ship_Game/MainMenuScreen.cs.i
+data/Content/StarterShips/Mauler Carrier.xml.i
+data/Ship_Game/FloatSlider.cs.i
+data/Ship_Game/AgentMission.cs.i
+data/Content/ShipModules/AntiMatterReactor.xml.i
+data/Ship_Game/Starfield.cs.i
+data/Content/ShipModules/TractorBeamTurret2x2.xml.i
+data/Content/ShipModules/RemnantSmallFuelCell.xml.i
+data/Particle3DSample/ParticleVertex.cs.i
+data/Ship_Game/Gameplay/GrudgeType.cs.i
+data/Content/ShipModules/Inertial Damper.xml.i
+data/Ship_Game/Universe/Ships/ShipDesignScreen.cs.i
+data/Content/ShipModules/PolaronTurret2x2.xml.i
+data/Ship_Game/Gameplay/ProjectileTracker.cs.i
+data/bin/Release/Fasterflect.xml.i
+data/Content/Textures/Arcs/Arc60.xnb.i
+data/FrameRateCounter.cs.i
+data/Ship_Game/CreatingNewGameScreen.cs.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_dip.xnb.i
+data/Ship_Game/NodeState.cs.i
+data/Content/Technology/Remnant Computing.xml.i
+data/Content/StarterShips/Zion Rocketeer Mk I.xml.i
+data/Ship_Game/WarType.cs.i
+data/Content/ShipModules/Powerplant_nuke_1x1.xml.i
+data/Content/Technology/Disintegrator Array.xml.i
+data/Content/Technology/InertialDampers.xml.i
+data/Content/Technology/Shipyards.xml.i
+data/Ship_Game/ArtifactEntry.cs.i
+data/Content/ShipModules/Combat_Thruster_2x2.xml.i
+data/Content/Technology/Mercantilism.xml.i
+data/Content/StarterShips/Zion Rocketeer.xml.i
+data/Ship_Game/Universe/Ships/ShipNames.cs.i
+data/CodeMap1.dgml.i
+data/Ship_Game/Snapshot.cs.i
+data/Content/Technology/StarshipConstruction.xml.i
+data/Content/ShipRoles/Freighter.xml.i
+data/Ship_Game/PlanetListScreenEntry.cs.i
+data/Content/Technology/Xeno Linguistics.xml.i
+data/Ship_Game/ExceptionViewer.cs.i
+data/Content/ShipModules/FrigateEngine.xml.i
+data/Content/Technology/FrigateConstruction.xml.i
+data/Content/Textures/SelectionBox/icon_formation_bleft_active.xnb.i
+data/Content/Technology/Armor Phasing.xml.i
+data/Ship_Game/SyncStuff.cs.i
+data/Content/Technology/XenoFarming.xml.i
+data/Content/ShipModules/Engine.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_military_pressed.xnb.i
+data/Content/ShipModules/Range_Thruster_2x2.xml.i
+data/Ship_Game/Universe/Ships/ShipData.cs.i
+data/Content/ShipModules/OrdnanceLockerSmall.xml.i
+data/Content/ShipModules/Combat_Thruster_3x3.xml.i
+data/Content/StarterShips/CT-Flames S.xml.i
+data/Ship_Game/Billboard.cs.i
+data/Content/EconomicResearchStrategy/Generalists.xml.i
+data/Ship_Game/ExplorationEvent.cs.i
+data/Content/StarterShips/Kulrathi Prototype.xml.i
+data/packages.config.i
+data/Content/Textures/StatusIcons/icon_boosted.xnb.i
+data/Content/Technology/Fleet Supply.xml.i
+data/Content/StarterShips/Holy Light-Class Mk IIIa Cruiser.xml.i
+data/Content/ShipModules/CapEngines.xml.i
+data/Ship_Game/Universe/SpatialManager.cs.i
+data/Content/StarterShips/Artillery Cruiser II a.xml.i
+data/Content/ShipModules/Combat_Thruster_4x4.xml.i
+data/Content/Textures/Minimap/button_down_active.xnb.i
+data/Content/ShipModules/FuelCellSmallArmored.xml.i
+data/Content/Races/Opteris.xml.i
+data/StarDrive.sln.orig.i
+data/Content/ShipModules/WarpEngine_3x3.xml.i
+data/Content/Textures/UI/icon_ftloverlay.xnb.i
+data/Content/ShipModules/PhotonTurret.xml.i
+data/Icons/icon_formation_aft_active.xnb.i
+data/Particle3DSample/ParticleSystem.cs.i
+data/Content/StarterShips/Zion Beamer.xml.i
+data/Content/ShipRoles/Fighter.xml.i
+data/Ship_Game/Gameplay/FearEntry.cs.i
+data/obj/x86/Release/Properties.Resources.resources.i
+data/Ship_Game/Tooltips.cs.i
+data/Content/SolarSystems/Sol.xml.i
+data/Content/Textures/SelectionBox/icon_formation_bright_active.xnb.i
+data/SteamManager.cs.i
+data/Content/ShipModules/Range_Thruster_1x1.xml.i
+data/Content/Technology/Reactive Armor.xml.i
+data/Ship_Game/LoadUniverseScreen.cs.i
+data/Content/Technology/SubspaceCommunication.xml.i
+data/Content/Technology/MediumFreighters.xml.i
+data/Ship_Game/Gameplay/Relationship.cs.i
+data/Ship_Game/Submenu.cs.i
+data/Ship_Game/ShipInfoUIElement.cs.i
+data/Ship_Game/ResourceManager.cs.orig.i
+data/Content/ShipRoles/Cruiser.xml.i
+data/Content/StarterShips/SS-Fighter Base Alpha.xml.i
+data/Content/ShipModules/NuclearReactorSmall.xml.i
+data/obj/x86/Debug/StarDrive.csproj.FileListAbsolute.txt.i
+data/Ship_Game/UnlockItem.cs.i
+data/Content/ShipModules/NuclearReactorMed.xml.i
+data/Ship_Game/RandomMath2.cs.i
+data/Ship_Game/Game1.cs.i
+data/Ship_Game/Commodity.cs.i
+data/Content/ShipModules/BasicCargoHold.xml.i
+data/Content/ShipModules/Quantanium_2x2.xml.i
+data/Ship_Game/HelpTopics.cs.i
+data/Ship_Game/ShipModuleType.cs.i
+data/Content/ShipModules/DeathSporeBay.xml.i
+data/Content/Technology/Photon Cannons.xml.i
+data/Content/Technology/Physics.xml.i
+data/_UpgradeReport_Files/UpgradeReport.css.i
+data/Ship_Game/War.cs.i
+data/Ship_Game/Gameplay/Ship.cs.d
+data/Ship_Game/Universe/Ships/ShipRole.cs.i
+data/Ship_Game/Technology.cs.i
+data/Content/ShipModules/Maneuvering_Thruster_2x2.xml.i
+data/Ship_Game/EconomicResearchStrategy.cs.i
+data/Ship_Game/RoundLineVertex.cs.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_168px_military.xnb.i
+data/Content/StarterShips/Confessor-Class Mk IIe Cruiser.xml.i
+data/Ship_Game/Camera2d.cs.i
+data/Ship_Game/MySplashScreen.cs.i
+data/Backup/icon_formation_aft_active.xnb.i
+data/Ship_Game/ToolTip.cs.i
+data/Ship_Game/MiniMap.cs.i
+data/Ship_Game/Universe/Ships/ShipModuleNode.cs.i
+data/Content/Textures/Minimap/button_down_inactive.xnb.i
+data/Content/StarterShips/Forward Base I.xml.i
+data/Ship_Game/Combat.cs.i
+data/Content/Technology/Tachyon Scanning.xml.i
+data/Ship_Game/Gameplay/Ship.cs.orig.i
+data/Content/Textures/Arcs/Arc45.xnb.i
+data/StarDrive.csproj.user.i
+data/Content/Technology/Remnant Studies.xml.i
+data/Ship_Game/RootNode.cs.i
+data/Content/Textures/UI/icon_money_22.xnb.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_132px_menu.xnb.i
+data/Ship_Game/ShipGroup.cs.i
+data/Content/StarterShips/Adv Zion Rkt.xml.i
+data/Ship_Game/DebugInfoScreen.cs.i
+data/Content/Textures/UI/icon_troop_shipUI.xnb.i
+data/Content/ShipModules/MarineBarracks8x4.xml.i
+data/Ship_Game/Good.cs.i
+data/Ship_Game/Gameplay/ItemToOffer.cs.i
+data/Content/ShipModules/WarpEngine_2x2.xml.i
+data/Ship_Game/ShipUpkeep.cs.i
+data/Content/ShipModules/Titan Engine.xml.i
+data/Ship_Game/RenderedScreen.cs.i
+data/Ship_Game/SpaceJunk.cs.i
+data/Ship_Game/MessageBoxScreen.cs.i
+data/ShipRole.cs.i
+data/Ship_Game/TroopInfoUIElement.cs.i
+data/Content/Technology/Ionic Weaponry.xml.i
+data/Ship_Game/NoteworthyEvent.cs.i
+data/obj/x86/Release/StarDrive.csproj.FileListAbsolute.txt.i
+data/Ship_Game/ResearchQItem.cs.i
+data/Ship_Game/Resource.cs.i
+data/Ship_Game/Thruster.cs.i
+data/Content/Technology/Ascension.xml.i
+data/Ship_Game/ShipModuleType.cs.rej.i
+data/Content/Races/Draylok.xml.i
+data/Ship_Game/MainMenuShipList.cs.i
+data/Ship_Game/Gameplay/ExplosionRay.cs.i
+data/Ship_Game/EncounterPopup.cs.i
+data/Ship_Game/Gameplay/Projectile.cs.i
+data/Icons/PipeSmoke.ico.i
+data/obj/x86/Debug/StarDrive.csproj.GenerateResource.Cache.i
+data/Ship_Game/TreeNode.cs.i
+data/WordWrapper.cs.i
+data/Content/StarterShips/Crusader-Class Mk IIIc Cruiser.xml.i
+data/Content/StarterShips/Medium Freighter.xml.i
+data/Content/StarterShips/Zion Disruptor.xml.i
+data/Ship_Game/Gameplay/WorldData.cs.i
+data/Content/Technology/Fusion Beam.xml.i
+data/Content/ShipRoles/Supply.xml.i
+data/Content/Technology/Vertical Farming.xml.i
+data/Ship_Game/ShipListScreenEntry.cs.i
+data/Content/ShipModules/CanopyShield.xml.i
+data/Content/ShipModules/RepairDrone.xml.i
+data/packages/fasterflect.2.1.3/lib/net35/Fasterflect.XML.i
+data/Ship_Game/Beam.cs.i
+data/Ship_Game/GameLoadingScreen.cs.i
+data/Content/Textures/ResearchMenu/icon_event_science_bad.xnb.i
+data/Ship_Game/DanButton.cs.i
+data/Ship_Game/ModelData.cs.i
+data/Content/ShipModules/Raider Bay.xml.i
+data/Content/Textures/Arcs/Arc90.xnb.i
+data/Content/StarterShips/Shielded Photon Fang.xml.i
+data/Content/ShipModules/Bridge.xml.i
+data/Ship_Game/CombatScreen.cs.i
+data/Content/Buildings/Space Port.xml.i
+data/Content/ShipModules/VulcanCannon.xml.i
+data/Content/StarterShips/Type X T47CV.xml.i
+data/Ship_Game/Gameplay/ClickablePlanetButton.cs.i
+data/Content/ShipModules/EMPTurret3x3.xml.i
+data/Ship_Game/BlueButton.cs.i
+data/Content/ShipModules/PlasmaThrower.xml.i
+data/Ship_Game/Gameplay/ModuleSlotData.cs.i
+data/_UpgradeReport_Files/UpgradeReport_Information.png.i
+data/Fasterflect.xml.i
+data/Ship_Game/Orders.cs.i
+data/Ship_Game/SystemCommander.cs.i
+data/Content/ShipModules/PhotonTurret3x3.xml.i
+data/Content/ShipModules/EMPTorpedo.xml.i
+data/Ship_Game/MuzzleFlashManager.cs.i
+data/Content/ShipModules/KineticPlatform.xml.i
+data/Content/StarterShips/Phase Acolyte.xml.i
+data/Content/ShipModules/Internal Bulkhead.xml.i
+data/Ship_Game/ShieldManager.cs.i
+data/Ship_Game/EventPopup.cs.i
+data/Ship_Game/Universe/Asteroid.cs.i
+data/Ship_Game/BloomComponent.cs.i
+data/.hgignore.i
+data/Ship_Game/Notification.cs.i
+data/Ship_Game/WorldInputState.cs.i
+data/Ship_Game/Universe/GameplayObject.cs.i
+data/Content/Textures/NewUI/icon_order_patrol_hover1.xnb.i
+data/Content/Technology/Centralized Banking.xml.i
+data/Ship_Game/InventoryItem.cs.i
+data/Content/ShipModules/LaserBeam2x3.xml.i
+data/Ship_Game/BillboardResource.cs.i
+data/StarDrive.sln.i
+data/Ship_Game/EmpireUIOverlay.cs.i
+data/Ship_Game/AgentComponent.cs.i
+data/Content/StarterShips/Torpedo Acolyte.xml.i
+data/Content/ShipModules/OrdnanceSupplyBay.xml.i
+data/Ship_Game/BatchRemovalCollection_T_.cs.i
+data/Content/StarterShips/Missile Acolyte.xml.i
+data/Content/StarterShips/Zion RT.xml.i
+data/Content/StarterShips/Scythe Prototype.xml.i
+data/Ship_Game/YouLoseScreen.cs.i
+data/Content/ShipModules/NuclearBombBay2x2.xml.i
+data/Ship_Game/Gameplay/ShipModule.cs.i
+data/Content/Textures/Minimap/button_C_normal.xnb.i
+data/obj/x86/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs.i
+data/Ship_Game/UnlocksGrid.cs.i
+data/Ship_Game/RefitToWindow.cs.i
+data/Ship_Game/ZeroSplash.cs.i
+data/Ship_Game/SaveFleetDesignScreen.cs.i
+data/Ship_Game/PopupWindow.cs.i
+data/Content/ShipModules/DisruptorTurret2x2.xml.i
+data/Ship_Game/Gameplay/GSAI.cs.i
+data/Ship_Game/NRO.cs.i
+data/Ship_Game/Gameplay/Grudge.cs.i
+data/Ship_Game/NumberToRomanConvertor.cs.i
+data/Content/StarterShips/CT-Light Support T.xml.i
+data/Ship_Game/DesignManager.cs.i
+data/Content/Technology/Planetary Shielding.xml.i
+data/Content/ShipModules/FuelCellMediumArmored.xml.i
+data/Content/StarterShips/Ralyeh Prototype L.xml.i
+data/Content/Technology/Plasma Ordnance.xml.i
+data/Content/Technology/Magnetic Artillery.xml.i
+data/Ship_Game/SaveGameScreen.cs.i
+data/Ship_Game/RoundLine.cs.i
+data/Content/ShipModules/DisruptorTurret3x3.xml.i
+data/Content/StarterShips/FTR-Inq MK2.xml.i
+data/Content/StarterShips/Laser Assault Acolyte.xml.i
+data/Ship_Game/UniverseData.cs.i
+data/Content/Technology/Ancient Repulsuor.xml.i
+data/Content/EconomicResearchStrategy/Technologists.xml.i
+data/Content/ShipModules/Dummy.xml.i
+data/Content/ShipModules/Flechette AF Turret.xml.i
+data/Particle3DSample/packages/fasterflect.2.1.3/fasterflect.2.1.3.nupkg.d
+data/Content/ShipModules/AncientReactorMed.xml.i
+data/Ship_Game/Starfield3D.cs.i
+data/_UpgradeReport_Files/UpgradeReport_Error.png.i
+data/Ship_Game/Universe/Ship.cs.i
+data/Ship_Game/SavedGame.cs.i
+data/Ship_Game/HostileFleets.cs.i
+data/Ship_Game/DiplomacyScreen.cs.i
+data/Content/ShipModules/Shield_10KW.xml.i
+data/Ship_Game/Gameplay/ETrait.cs.i
+data/Content/ShipModules/PlaSteelArmorLarge.xml.i
+data/Content/Textures/ShipIcons/subspace_projector.xnb.i
+data/Ship_Game/DefensiveCoordinator.cs.i
+data/Content/Technology/Privatization.xml.i
+data/Ship_Game/DropOptions.cs.i
+data/Content/Textures/UI/icon_rangeoverlay.xnb.i
+data/Ship_Game/MissionEntry.cs.i
+data/Ship_Game/PlanetInfoUIElement.cs.i
+data/Content/ShipRoles/Platform.xml.i
+data/Content/Technology/Point Defense.xml.i
+data/Ship_Game/RaceEntry.cs.i
+data/Content/RacialTraits/RacialTraits.xml.i
+data/Ship_Game/ExceptionViewer.Designer.cs.i
+data/Content/ShipModules/BasicFuelCell.xml.i
+data/Ship_Game/Gameplay/Circle.cs.i
+data/Ship_Game/LoadSavedFleetDesignScreen.cs.i
+data/Ship_Game/LoadDesigns.cs.i
+data/Ship_Game/Goal.cs.i
+data/Content/SolarSystems/Random/Issues.xml.i
+data/Ship_Game/Gameplay/Arc.cs.i
+data/Ship_Game/EspionageScreen.cs.i
+data/Ship_Game/EncounterScreen.cs.i
+data/Content/ShipModules/Warp Inhibitor.xml.i
+data/Content/EconomicResearchStrategy/Expansionists.xml.i
+data/Content/Textures/Arcs/Arc15.xnb.i
+data/Ship_Game/Universe/Ships/ModuleSlot.cs.i
+data/Ship_Game/SelectedShipEntry.cs.i
+data/Ship_Game/ProgressBar.cs.i
+data/Ship_Game/Universe/Ships/ShieldManager.cs.i
+data/Ship_Game/ResearchPopup.cs.i
+data/Ship_Game/NotificationManager.cs.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_68px_menu.xnb.i
+data/Ship_Game/RandomItem.cs.i
+data/Content/StarterShips/Sceptre Artillery.xml.i
+data/Ship_Game/ModEntry.cs.i
+data/Ship_Game/Fonts.cs.i
+data/Content/Technology/Secret.xml.i
+data/Content/ShipModules/SteelArmorMed.xml.i
+data/Ship_Game/SlotStruct.cs.i
+data/Ship_Game/DevekSplash.cs.i
+data/Ship_Game/Universe/Ships/ShipGroup.cs.i
+data/Content/StarterShips/Acolyte of Flak II.xml.i
+data/Ship_Game/VariableUIElement.cs.i
+data/Ship_Game/ResourceManager.cs.i
+data/Ship_Game/DeepSpaceBuildingWindow.cs.i
+data/Ship_Game/QueueComponent.cs.i
+data/Ship_Game/ModInformation.cs.i
+data/Ship_Game/TestScreen.cs.i
+data/Ship_Game/Gameplay/DTrait.cs.i
+data/Content/ShipModules/PlaSteelArmorSmall.xml.i
+data/Content/Technology/Cruisers.xml.i
+data/Content/Textures/UI/nodecorrected.xnb.i
+data/Content/ShipModules/fuel_reactor_1x1.xml.i
+data/Ship_Game/ScrollList.cs.i
+data/_UpgradeReport_Files/UpgradeReport.xslt.i
+data/Ship_Game/EmpireData.cs.i
+data/Ship_Game/ShipNames.cs.i
+data/Particle3DSample/packages/fasterflect.2.1.3/fasterflect.2.1.3.nupkg.i
+data/Ship_Game/DiplomacyScreen.orig.cs.i
+data/Content/Textures/StatusIcons/icon_flux.xnb.i
+data/Ship_Game/RandomEvent.cs.i
+data/UpgradeLog.htm.i
+data/Content/ShipModules/Owlwok Liberator.xml.i
+data/Content/ShipModules/SupplyTransporter.xml.i
+data/Icons/blackbox drop.ico.i
+data/Ship_Game/TexturedButton.cs.i
+data/bin/Release/stardrive se.01 Tes.zip.d
+data/Content/ShipModules/TroopAssaultBay.xml.i
+data/bin/Release/stardrive se.01 Tes.zip.i
+data/Ship_Game/MarkovNameGenerator.cs.i
+data/Content/Textures/Minimap/button_B_normal.xnb.i
+data/Ship_Game/ShipListScreen.cs.i
+data/Ship_Game/ColonyScreen.cs.i
+data/Content/ShipModules/Fighterbomb_2x4.xml.i
+data/Content/ShipModules/LaserBeamTurret2x2.xml.i
+data/Ship_Game/ModuleButton.cs.i
+data/Ship_Game/Gameplay/GoalType.cs.i
+data/Content/ShipModules/LaserTurret.xml.i
+data/Content/StarterShips/Type X T48CVS.xml.i
+data/Ship_Game/ShipToolScreen.cs.i
+data/Content/ShipModules/Quantanium_3x3.xml.i
+data/Ship_Game/BloomSettings.cs.i
+data/Content/Textures/Arcs/Arc20.xnb.i
+data/Content/StarterShips/SCS Dark Betrayal.xml.i
+data/Content/Technology/Owlwok Freedom.xml.i
+data/Ship_Game/Background3D.cs.i
+data/Particle3DSample/packages/fasterflect.2.1.3/lib/net35/Fasterflect.XML.i
+data/Ship_Game/BudgetScreen.cs.i
+data/Ship_Game/PieMenuNode.cs.i
+data/Content/StarterShips/Opteris Prototype.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_132px_menu_pressed.xnb.i
+data/Ship_Game/UIElement.cs.i
+data/Content/Textures/NewUI/icon_order_explore_hover1.xnb.i
+data/Ship_Game/InGameWiki.cs.i
+data/Ship_Game/MinimapButtons.cs.i
+data/Content/Technology/Logistics.xml.i
+data/Content/Technology/Ascension Schematics.xml.i
+data/Ship_Game/Ref_T_.cs.i
+data/Ship_Game/ShipDesignScreen.cs.i
+data/Ship_Game/Gameplay/FederationQuest.cs.i
+data/Ship_Game/Transition.cs.i
+data/packages/fasterflect.2.1.3/lib/net40/Fasterflect.dll.i
+data/Content/Technology/Military.xml.i
+data/Ship_Game/GenericButton.cs.i
+data/Ship_Game/ModManager.cs.i
+data/Ship_Game/EventTypes.cs.i
+data/Particle3DSample/packages/fasterflect.2.1.3/lib/net40/Fasterflect.dll.i
+data/Properties/Resources.resx.i
+data/Content/Textures/Arcs/Arc180.xnb.i
+data/Ship_Game/GenericSlider.cs.i
+data/Ship_Game/TechEntry.cs.i
+data/Ship_Game/Gameplay/DiplomacyDialog.cs.i
+data/Content/Textures/Minimap/button_hover.xnb.i
+data/Content/StarterShips/Type V T32CVL.xml.i
+data/Content/Technology/Thalaron Blaster.xml.i
+data/Ship_Game/QueueItem.cs.i
+data/Content/Technology/LargeFreighters.xml.i
+data/Content/Technology/Rapid Cloning.xml.i
+data/Ship_Game/EmpireScreen.cs.i
+data/Content/Technology/FighterTheory.xml.i
+data/Content/StarterShips/Workflamer.xml.i
+data/Ship_Game/RandomThreadMath.cs.i
+data/Content/Races/Kulrathi.xml.i
+data/Content/Technology/Battleships.xml.i
+data/Ship_Game/UIButton.cs.i
+data/Ship_Game/ShipListInfoUIElement.cs.i
+data/Ship_Game/Offer.cs.i
+data/Content/Races/Human(example).xml.i
+data/Content/Technology/Ancient Ion Technology.xml.i
+data/Ship_Game/SpaceStation.cs.i
+data/Ship_Game/ThreeStateButton.cs.i
+data/Content/StarterShips/Aegis Mauler.xml.i
+data/Ship_Game/PlanetScreen.cs.i
+data/Content/Technology/SpaceWeapons.xml.i
+data/Content/Technology/Fighter Shields.xml.i
+data/Ship_Game/Selector.cs.i
+data/Ship_Game/SlidingElement.cs.i
+data/Content/ShipModules/Fighterbomb_1x2.xml.i
+data/Content/ShipModules/PhasorBeam2x3.xml.i
+data/Content/Technology/Cryogenics.xml.i
+data/app.config.i
+data/Ship_Game/Troop.cs.i
+data/Ship_Game/CloseButton.cs.i
+data/Ship_Game/ScreenState.cs.i
+data/Ship_Game/EventScreen.cs.i
+data/StarDrive.csproj.orig.orig.i
+data/Content/ShipModules/Railgun2x5.xml.i
+data/Content/StarterShips/Zion Missile Frigate.xml.i
+data/Ship_Game/AudioManager.cs.i
+data/Content/ShipModules/Maneuvering_Thruster_1x1.xml.i
+data/Content/Technology/ECM.xml.i
+data/Content/ShipModules/PolaronTurret3x3.xml.i
+data/Ship_Game/Universe/Ships/Shield.cs.i
+data/Ship_Game/HeaderData.cs.i
+data/Content/ShipModules/CombatEngine_2x2.xml.i
+data/Content/Technology/Phased Ordnance.xml.i
+data/Content/Technology/AntiMatter.xml.i
+data/Content/ShipModules/Cockpit.xml.i
+data/Ship_Game/Gameplay/Asteroid.cs.i
+data/Ship_Game/Empire.cs.i
+data/Ship_Game/EmpireScreenEntry.cs.i
+data/SingleGlobalInstance.cs.i
+data/Content/ShipModules/IonCannon1x3.xml.i
+data/Content/Technology/XenoMining.xml.i
+data/Content/Technology/BattleRaiders.xml.i
+data/Ship_Game/UnexploredPlanetScreen.cs.i
+data/Content/ShipModules/FighterBay.xml.i
+data/Content/Technology/IndustrialFoundations.xml.i
+data/Content/ShipModules/FusionTurret2x2.xml.i
+data/Ship_Game/Menu2.cs.i
+data/packages/fasterflect.2.1.3/fasterflect.2.1.3.nuspec.i
+data/Ship_Game/MilitaryResearchStrategy.cs.i
+data/Content/ShipModules/Maneuvering_Thruster_3x3.xml.i
+data/Content/StarterShips/PT-Shell Born.xml.i
+data/Content/StarterShips/Ftr-Plasma Tentacle.xml.i
+data/Content/ShipModules/QTCannon.xml.i
+data/Content/SolarSystems/Random/Alpha Centauri.xml.i
+data/Ship_Game/TransitionCurve.cs.i
+data/Content/Technology/Advanced Materials.xml.i
+data/bin/Release/StarDrive.vshost.exe.config.i
+data/Ship_Game/PlanetEdict.cs.i
+data/Content/Technology/Genetic Manipulation.xml.i
+data/Content/ShipRoles/Carrier.xml.i
+data/Ship_Game/Universe/Ships/ShipQueueItem.cs.i
+data/Ship_Game/ToggleButton.cs.i
+data/Content/ShipModules/SteelArmorSmall.xml.i
+data/Content/Technology/Subspace Artillery.xml.i
+data/Ship_Game/Shield.cs.i
+data/Ship_Game/Program.cs.i
+data/Ship_Game/BloomPostProcessor.cs.i
+data/Content/StarterShips/DD-Plasma T.xml.i
+data/Content/ShipModules/Shield_1KW.xml.i
+data/Ship_Game/FleetReplay.cs.i
+data/Content/Textures/Minimap/button_B_hover.xnb.i
+data/Ship_Game/LoadModelScreen.cs.i
+data/Content/Technology/Deep Core Mining.xml.i
+data/Content/Textures/EmpireTopBar/empiretopbar_btn_68px_menu_hover.xnb.i
+data/Content/PlanetEdicts/Core.xml.i
+data/Content/Technology/Planetary Defense.xml.i
+data/Ship_Game/ShipRole.cs.i
+data/StarDrive.exe.config.i
+data/Ship_Game/Agent.cs.i
+data/Content/Technology/Nanoweave Metallurgy.xml.i
+data/Icons/Game.ico.i
+data/Content/Technology/ScientificFoundations.xml.i
+data/Content/StarterShips/CT-Escort.xml.i
+data/Ship_Game/Localizer.cs.i
+data/Content/Technology/Siphon Beam.xml.i
+data/blackbox drop.ico.i
+data/StarDrive.v12.suo.i
+data/Ship_Game/TutorialScreen.cs.i
+data/Content/ShipRoles/Corvette.xml.i
+data/StarDrive.v12.suo.d
+data/Content/StarterShips/Kulrathi Aegis.xml.i
+data/Content/StarterShips/Heavy Zion Railer.xml.i
+data/Ship_Game/HeaderRightSlant.cs.i
+data/Content/Technology/ShipboardAssault.xml.i
+data/Content/StarterShips/DD-Plasma T PD.xml.i
+data/Content/StarterShips/Adv Zion Railer.xml.i
+data/Content/Technology/Phasors.xml.i
+data/Ship_Game/SolarSystemData.cs.i
+data/Ship_Game/RandomMath.cs.i
+data/Content/Technology/FuelCell2.xml.i
+data/Content/ShipModules/AuxWarpCore.xml.i
+data/Ship_Game/LoadingScreen.cs.i
+data/Content/Technology/Energy Cannons.xml.i
+data/Ship_Game/Gameplay/ThreatMatrix.cs.i
+data/Particle3DSample/packages/fasterflect.2.1.3/fasterflect.2.1.3.nuspec.i
+data/Ship_Game/Gameplay/MissileAI.cs.i
+data/Ship_Game/Node.cs.i
+data/Ship_Game/ShipQueueItem.cs.i
+data/Ship_Game/Token.cs.i
+data/Ship_Game/FleetDesign.cs.i
+data/Ship_Game/ResearchScreenNew.cs.i
+data/Ship_Game/Gameplay/SpatialManager.cs.i
+data/Content/Technology/Disruptors.xml.i
+data/Ship_Game/OrbitalAssetsUIElement.cs.i
+data/obj/x86/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs.i
+data/Ship_Game/PieCursor.cs.i
+data/Ship_Game/RequisitionScreen.cs.i
+data/Ship_Game/CommodityBonusType.cs.i
+data/Content/ShipModules/LaserTurretHeavy.xml.i
+data/obj/x86/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs.i
+data/Content/Textures/Minimap/button_down_hover.xnb.i
+data/Content/ShipModules/Sickbay.xml.i
+data/Ship_Game/AnomalyManager.cs.i
+data/Content/ShipModules/HeavyLaserCannon.xml.i
+data/Ship_Game/Gameplay/Store.cs.i
+data/Ship_Game/CursorMode.cs.i
+data/Content/StarterShips/Resupply Station.xml.i
+data/Ship_Game/OrderType.cs.i
+data/Ship_Game/RoundLineManager.cs.i
+data/Content/StarterShips/DD-Plasma.xml.i

@@ -1,0 +1,336 @@
+Never tell your password to anyone.
+Friday, July 24, 2015
+YoyoXyz: Hey Crunchy, I just opened Stardrive.cs in VS2015, and am receiving reference errors. Could you guide me through the project setup (e.g. unpack Steam/Stardrive contents into blackbox)?
+Crunchy Gremlin: no dont do  at
+Crunchy Gremlin: one create yourself a configuration.
+Crunchy Gremlin: project properties
+Crunchy Gremlin: the click teh reference paths and add to the paoth your stardrive location
+Crunchy Gremlin: that should do it
+Crunchy Gremlin: you know how to create your own configuration?
+YoyoXyz: No, I'm pretty unfamiliar with the setup :(
+YoyoXyz: could you explain the process to me?
+Crunchy Gremlin: click the dropdown next to start
+Crunchy Gremlin: it will llikely say debug. there is a whole bunch  in the list
+Crunchy Gremlin: click the bottom one for configuration manager
+Crunchy Gremlin: it should open a new window.
+Crunchy Gremlin: on the line that  says "stardrive" click the dropdown for configuration
+Crunchy Gremlin: choose new
+Crunchy Gremlin: copy settings from crunchies debug
+Crunchy Gremlin: name some thing you like
+Crunchy Gremlin: name it
+Crunchy Gremlin: leavbe it at x86
+Crunchy Gremlin: let me know what you got that done
+YoyoXyz: got it
+Crunchy Gremlin: ok now change the the drop down next to start to your config
+Crunchy Gremlin: then go to project properties
+YoyoXyz: Project tab --> Stardrive properties?
+Crunchy Gremlin: yes
+Crunchy Gremlin: got it?
+YoyoXyz: got it
+Crunchy Gremlin: the confiuration should show your configuration
+Crunchy Gremlin: does it?
+Crunchy Gremlin: if not change it to yours
+Crunchy Gremlin: ok?
+YoyoXyz: okay
+Crunchy Gremlin: click the build tab on properties
+Crunchy Gremlin: on the conditional compliation symbols it should have some stuff in there. copy it out paste it here
+YoyoXyz: STEAM PERF
+Crunchy Gremlin: ok. ill explain these so you should copy this and put it somewhere... sorry about this. very poorly documented
+Crunchy Gremlin: STEAM enables or disables the steam dll. you need that on generally
+Crunchy Gremlin: PERF is for debugging long haul it disables teh diplomacy screen and ai to player interaction mostly.
+Crunchy Gremlin: so you can let the game run to see how the AI deals with changes and catch late game crashes and what not
+Crunchy Gremlin: you dont want that on to just play the game. just put an "x" in front of it
+Crunchy Gremlin: you will need to add ALTERTHREAD
+Crunchy Gremlin: alterthread turns on the .net4 threading model.
+Crunchy Gremlin: uses more cores. the normal threading model is actually broken right now and without alterthread things wont work right
+Crunchy Gremlin: ok. there are a couple of more switches available. AUTOTIME makes the game run as fast as it can.
+Crunchy Gremlin: autotime combined with perf and you can start the game up adn walk away for a few minutes and the the ai will have cruisers and stuff.
+Crunchy Gremlin: playeronly with try and prevent the ai from doing anything so you can test out things without the AI getting in the way.
+Crunchy Gremlin: for a normal compliation you want
+Crunchy Gremlin: STEAM ALTERTHREAD
+Crunchy Gremlin: so again the options are.
+Crunchy Gremlin: STEAM ALTERTHREAD PERF AUTOTIME PLAYERONLY
+Crunchy Gremlin: for long haul testing you want.
+Crunchy Gremlin: STEAM ALTERTHREAD PERF AUTOTIME
+Crunchy Gremlin: :)
+Crunchy Gremlin: ok now on to the actual important stuff.
+YoyoXyz: :D
+Crunchy Gremlin: make sure debug is checked
+Crunchy Gremlin: not sure if trace is needed or not....
+Crunchy Gremlin: Change the output path to where your game lives
+Crunchy Gremlin: trace is on for me
+Crunchy Gremlin: also you need "Allow unsafe code"
+Crunchy Gremlin: this is the setup for debugging
+Crunchy Gremlin: likely want optimize code too.
+Crunchy Gremlin: ok?
+YoyoXyz: okay
+Crunchy Gremlin: cool.,
+Crunchy Gremlin: buildevents
+Crunchy Gremlin: i have a line in postbuild event command line
+Crunchy Gremlin: this should turn on LAA mode for the exe when compiled. it should work for you.
+YoyoXyz: if exist upload "C:\Program Files\7-Zip\7z" A -tzip $(ConfigurationName)$([System.DateTime]::Now.ToString(`MMdd`)).zip @include.txt
+Crunchy Gremlin: it also does some stuff specific to my setup to make the release build. but it should do its job correctly for you
+Crunchy Gremlin: yeah that is the release code.
+Crunchy Gremlin: the important part for you is the first bit of that.
+Crunchy Gremlin: if exist "$(DevEnvDir)..\tools\vsvars32.bat" call "$(DevEnvDir)..\tools\vsvars32.bat" && editbin /largeaddressaware "$(TargetPath)"
+Crunchy Gremlin: you have that in there right?
+YoyoXyz: No, that was all the code in the post-build
+Crunchy Gremlin: hrrmmm.
+Crunchy Gremlin: well erase whats there and paste this.
+Crunchy Gremlin: if exist "$(DevEnvDir)..\tools\vsvars32.bat" call "$(DevEnvDir)..\tools\vsvars32.bat" && editbin /largeaddressaware "$(TargetPath)"&&   if exist upload "C:\Program Files\7-Zip\7z" A sd.7z @include.txt && copy /b 7ZSD.sfx + config.txt + "sd.7z" $(ConfigurationName)$([System.DateTime]::Now.ToString(`MMdd`)).exe
+Crunchy Gremlin: thats a global setting for whatever reason
+Crunchy Gremlin: it must be correct else everyone will be upset. as everyones compile will fail and ill have to rebuild it
+Crunchy Gremlin: i am curious why its doesnt have the full line in there
+Crunchy Gremlin: did you merge you pull down your branch?
+YoyoXyz: I just pulled this onto my local drive: https://bitbucket.org/CrunchyGremlin/sd-blackbox/branch/YoyoXyz
+Crunchy Gremlin: wierd.
+Crunchy Gremlin: no matter. you fot that line pasted in there?
+YoyoXyz: mhmm
+Crunchy Gremlin: ok.
+Crunchy Gremlin: debug
+Crunchy Gremlin: should have start project checked
+Crunchy Gremlin: resources
+Crunchy Gremlin: not sure what to do with that so leave it
+Crunchy Gremlin: skip down to references
+Crunchy Gremlin: add your game directory path here
+YoyoXyz: yup
+Crunchy Gremlin: great. hit the start button
+Crunchy Gremlin: see if it compiles and runs
+Crunchy Gremlin: then check the blackbox version and let me know what that says
+Crunchy Gremlin: if it works of course
+Crunchy Gremlin: i assume it did?
+YoyoXyz: Successful build.
+Crunchy Gremlin: SUPER!
+Crunchy Gremlin: fing fantastic
+Crunchy Gremlin: you are set to go. ok
+Crunchy Gremlin: open the app.config file
+Crunchy Gremlin: in the solution explorere
+Crunchy Gremlin: this is the funky way i verstion the code
+Crunchy Gremlin: its not great but it works
+Crunchy Gremlin: in the extended version line it will have the blackbox version information
+Crunchy Gremlin: <add key="ExtendedVersion" value=": Radical_Elements_RC_0723A" />
+Crunchy Gremlin: paste yours here
+YoyoXyz: <add key="ExtendedVersion" value=": Radical_Elements_Test" />
+Crunchy Gremlin: ah...
+Crunchy Gremlin: i see
+Crunchy Gremlin: so that is f;d up.
+Crunchy Gremlin: go to source tree
+Crunchy Gremlin: you need the latest build somehow you got a super ancient build
+Crunchy Gremlin: thats like over a year old so something
+Crunchy Gremlin: you know how to merge?
+Crunchy Gremlin: this isnt great as you likely will get a merg conflict and have to rebuild your config
+Crunchy Gremlin: i was kinda worried about that as the buildevent was weird
+Crunchy Gremlin: but this is good
+Crunchy Gremlin: as you can see what a merge conflict is
+Crunchy Gremlin: ok?
+YoyoXyz: okay
+Crunchy Gremlin: merging in source tree is pretty easy
+Crunchy Gremlin: but its got a learning vurve. you know git some right
+Crunchy Gremlin: so you know merges can be terrorizing
+YoyoXyz: lol
+Crunchy Gremlin: so in source tree double click your branch
+Crunchy Gremlin: so that its bold
+Crunchy Gremlin: ok?
+YoyoXyz: okay
+Crunchy Gremlin: right click the july branch and choose merge july into current branch
+Crunchy Gremlin: it might say you now have merge errors or conflicts or something.
+Crunchy Gremlin: does it?
+YoyoXyz: hg merge -y ui.merge=internal:merge 563
+abort: merging with a working directory ancestor has no effect
+
+Completed with errors, see above.
+YoyoXyz: hg merge -y ui.merge=internal:merge 563
+YoyoXyz: abort: merging with a working directory ancestor has no effect
+Crunchy Gremlin: go back to studio
+Crunchy Gremlin: i think i know what happened
+Crunchy Gremlin: does studio says the source files have changed
+YoyoXyz: Where would it indicate?
+Crunchy Gremlin: it would just popup
+YoyoXyz: No, no popups
+Crunchy Gremlin: hrmmm.
+Crunchy Gremlin: the appconfig line says you are using a really old build but source tree says you have the latest build
+Crunchy Gremlin: check app.config again
+YoyoXyz: <?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <add key="XRES" value="1920" />
+    <add key="YRES" value="1080" />
+    <add key="WindowMode" value="2" />
+    <add key="RanOnce" value="false" />
+    <add key="ForceFullSim" value="true" />
+    <add key="MusicVolume" value="70" />
+    <add key="EffectsVolume" value="100" />
+    <add key="AutoSaveInterval" value="300" />
+    <add key="Language" value="English" />
+    <add key="ActiveMod" value="" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+    <add key="OptionIncreaseShipMaintenance" value="0" />
+    <add key="ModSupport" value="true" />
+    <add key="MinimumWarpRange" value="600000" />
+    <add key="MemoryLimiter" value="300000" />
+    <add key="ExtraNotifications" value="true" />
+    <add key="PauseOnNotification" value="false" />
+    <add key="ExtraPlanets" value="0" />
+    <add key="GravityWellRange" value="8000" />
+    <add key="StartingPlanetRichness" value="1" />
+    <add key="ExtendedVersion" value=": Radical_Elements_Test" />
+    <add key="8XAntiAliasing" value="false" />
+    <add key="IconSize" value="0" />
+    <add key="preventFederations" value="false" />
+    <add key="shipcountlimit" value="1500" />
+    <add key="EliminationMode" value="false" />
+    <add key="freighterlimit" value="50" />
+    <add key="ssplimit" value="50" />
+   
+  </appSettings>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+  </startup>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="Cl
+Crunchy Gremlin: close it and reopen it
+YoyoXyz: VS, or just app.config?
+Crunchy Gremlin: just the file for now
+YoyoXyz: <?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <add key="XRES" value="1920" />
+    <add key="YRES" value="1080" />
+    <add key="WindowMode" value="2" />
+    <add key="RanOnce" value="false" />
+    <add key="ForceFullSim" value="true" />
+    <add key="MusicVolume" value="70" />
+    <add key="EffectsVolume" value="100" />
+    <add key="AutoSaveInterval" value="300" />
+    <add key="Language" value="English" />
+    <add key="ActiveMod" value="" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+    <add key="OptionIncreaseShipMaintenance" value="0" />
+    <add key="ModSupport" value="true" />
+    <add key="MinimumWarpRange" value="600000" />
+    <add key="MemoryLimiter" value="300000" />
+    <add key="ExtraNotifications" value="true" />
+    <add key="PauseOnNotification" value="false" />
+    <add key="ExtraPlanets" value="0" />
+    <add key="GravityWellRange" value="8000" />
+    <add key="StartingPlanetRichness" value="1" />
+    <add key="ExtendedVersion" value=": Radical_Elements_Test" />
+    <add key="8XAntiAliasing" value="false" />
+    <add key="IconSize" value="0" />
+    <add key="preventFederations" value="false" />
+    <add key="shipcountlimit" value="1500" />
+    <add key="EliminationMode" value="false" />
+    <add key="freighterlimit" value="50" />
+    <add key="ssplimit" value="50" />
+   
+  </appSettings>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+  </startup>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="Cl
+Crunchy Gremlin: something is wrong.
+Crunchy Gremlin: are you sure your are opening the stufio file from the directory of the repository
+YoyoXyz: Started VS --> Open Project --> BLACKBOX Stardrive.cs
+Crunchy Gremlin: in source tree click repository settings
+Crunchy Gremlin: repostiry repostiroy settings
+Crunchy Gremlin: the path should be where you are opening the project from
+Crunchy Gremlin: on the advanced tab
+YoyoXyz: https://castroev@bitbucket.org/CrunchyGremlin/sd-blackbox
+Crunchy Gremlin: advanced tab
+YoyoXyz: D;\Programs\SD BLACKBOX\.hgignore
+Crunchy Gremlin: make sure you are opening the project from that firectory
+YoyoXyz: D:\Programs\SD BLACKBOX\StarDrive.sln
+YoyoXyz: mhm
+YoyoXyz: VS reports correct path
+Crunchy Gremlin: i dont get it...why is the version wrong.
+Crunchy Gremlin: is the app.config on an ignore listt?
+YoyoXyz: an ignore list?
+YoyoXyz: syntax: glob
+obj/
+*.psess
+*.vsp
+Ship_Game\Gameplay\GremlinAI.cs
+bin/
+StarDrive.csproj.orig
+*.orig
+StarDrive.sln
+StarDrive.v12.suo
+UpgradeLog2.htm
+Crunchy Gremlin: yeah some files are ignored. performance ftest files. and some other stuff
+Crunchy Gremlin: messy but thats it
+YoyoXyz: Should we just re-upload the updated branch?
+YoyoXyz: It may be easier if I pull the current one
+Crunchy Gremlin: well. .you have it already.
+Crunchy Gremlin: just double click july
+Crunchy Gremlin: then check the app.config again
+Crunchy Gremlin: if that gives the right version information
+Crunchy Gremlin: then make a new branch of a name of your choice
+Crunchy Gremlin: and merge july into ot
+YoyoXyz: I merged, VS reported change
+Crunchy Gremlin: check the app config
+YoyoXyz: Throws error, when attempting to open stardrive project: StarDrive.csproj: Error on line 2047. Expected 'ENCODING' but found 'utf-8'
+Crunchy Gremlin: this is a new branch?
+Crunchy Gremlin: why is this crap never simple
+YoyoXyz: Mhm, merged July, but one file failed to merge 1 file
+YoyoXyz: probably the file we edited in VS
+Crunchy Gremlin: look in source tree
+Crunchy Gremlin: what file is it
+Crunchy Gremlin: so what branch fo yo uhave selected in source tree?
+YoyoXyz: File is StarDrive.csproj from branch "default" selected
+Crunchy Gremlin: did you do a merge or just change branches?
+YoyoXyz: I selected "default" branch, my branch, right-clicked on July branch "Jul, 27, 2014" and clicked "merge"
+Crunchy Gremlin: ok. so. let backup
+Crunchy Gremlin: so in source tree you should "uncommited" changes
+YoyoXyz: Yes
+Crunchy Gremlin: ok select that.
+Crunchy Gremlin: click the discard button at the top
+Crunchy Gremlin: and reset all
+Crunchy Gremlin: now you know how to get rid of a funky commit
+Crunchy Gremlin: or uncommit.
+Crunchy Gremlin: rather
+Crunchy Gremlin: got it?
+YoyoXyz: got it
+Crunchy Gremlin: ok. double click your branch again
+Crunchy Gremlin: go back to visual stufdio
+Crunchy Gremlin: your branch should be "YoyoXyz"
+Crunchy Gremlin: ok?
+YoyoXyz: no, it's missing
+Crunchy Gremlin: whats missing?
+YoyoXyz: "YoyoXyz,"  I have "default" selected as current
+Crunchy Gremlin: ah. that explains that
+Crunchy Gremlin: click the pull button at the top
+YoyoXyz: mk
+Crunchy Gremlin: now you should have it
+YoyoXyz: pull from remote: https://castroev@bitbucket.org/CrunchyGremlin/sd-blackbox
+Crunchy Gremlin: yeah
+Crunchy Gremlin: are you using command line or source tree?
+YoyoXyz: Now I see it
+Crunchy Gremlin: sweet
+Crunchy Gremlin: ok. lets start  from the beginnning
+Crunchy Gremlin: :)
+Crunchy Gremlin: double clock your YoyoXyz branch
+Crunchy Gremlin: thats your branch. do all your stuff in that branch
+Crunchy Gremlin: when you are ready you can merge into one of the main branches.
+Crunchy Gremlin: create your config
+Crunchy Gremlin: setup your project properties
+Crunchy Gremlin: try to compile.
+Crunchy Gremlin: let me know if you need any help there
+Crunchy Gremlin: i need to update default
+Crunchy Gremlin: my branch management kinda sucks . sorry about that
+Crunchy Gremlin: brb. smoking
+YoyoXyz: Successful build; app.config reports: <add key="ExtendedVersion" value=": Radical_Elements_RC_0723A" />

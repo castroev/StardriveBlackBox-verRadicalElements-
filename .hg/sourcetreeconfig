@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<RepositoryCustomSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AutoRefresh>true</AutoRefresh>
+  <AutoRefreshRemotes>true</AutoRefreshRemotes>
+  <CommitTextLinks />
+  <IncomingSavedCount>0</IncomingSavedCount>
+  <LastCheckedRemotes>2015-07-24T21:43:53.8010077-07:00</LastCheckedRemotes>
+  <LastUsedView>Log</LastUsedView>
+  <LogBranchFilterIndex>1</LogBranchFilterIndex>
+  <OutgoingSavedCount>0</OutgoingSavedCount>
+  <RemoteProjectLinks>
+    <RepositoryRemoteProjectLink>
+      <BaseUrl>https://bitbucket.org</BaseUrl>
+      <Identifier>CrunchyGremlin/sd-blackbox</Identifier>
+      <RemoteName>default</RemoteName>
+      <Type>Bitbucket</Type>
+    </RepositoryRemoteProjectLink>
+  </RemoteProjectLinks>
+  <SidebarExpandedItems>
+    <string>File Status</string>
+    <string>File Status/Working Copy</string>
+    <string>Branches</string>
+    <string>Branches/default</string>
+    <string>Branches/feature</string>
+    <string>Branches/General_Azure</string>
+    <string>Branches/release</string>
+    <string>Remotes</string>
+  </SidebarExpandedItems>
+  <SidebarWidth>140</SidebarWidth>
+  <SubtreeLinks />
+</RepositoryCustomSettings>
