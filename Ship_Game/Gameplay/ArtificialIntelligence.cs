@@ -14,7 +14,7 @@ namespace Ship_Game.Gameplay
 	public sealed class ArtificialIntelligence : IDisposable
 	{
        // public Task fireTask;
-        public bool UseSensorsForTargets =true;
+        public bool UseSensorsForTargets = true;
         public bool ClearOrdersNext;
 
 		private Vector2 aiNewDir;

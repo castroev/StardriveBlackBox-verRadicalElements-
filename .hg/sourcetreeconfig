@@ -3,8 +3,8 @@
   <AutoRefresh>true</AutoRefresh>
   <AutoRefreshRemotes>true</AutoRefreshRemotes>
   <CommitTextLinks />
-  <IncomingSavedCount>0</IncomingSavedCount>
-  <LastCheckedRemotes>2015-07-24T21:43:53.8010077-07:00</LastCheckedRemotes>
+  <IncomingSavedCount>6</IncomingSavedCount>
+  <LastCheckedRemotes>2015-07-26T19:23:18.8755057-07:00</LastCheckedRemotes>
   <LastUsedView>Log</LastUsedView>
   <LogBranchFilterIndex>1</LogBranchFilterIndex>
   <OutgoingSavedCount>0</OutgoingSavedCount>
@@ -21,9 +21,10 @@
     <string>File Status/Working Copy</string>
     <string>Branches</string>
     <string>Branches/default</string>
-    <string>Branches/feature</string>
     <string>Branches/General_Azure</string>
     <string>Branches/release</string>
+    <string>Branches/YoyoXyz</string>
+    <string>Branches/feature</string>
     <string>Remotes</string>
   </SidebarExpandedItems>
   <SidebarWidth>140</SidebarWidth>

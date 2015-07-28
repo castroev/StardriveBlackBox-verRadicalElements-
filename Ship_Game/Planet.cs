@@ -2286,7 +2286,7 @@ namespace Ship_Game
             if (index.GetRelations().ContainsKey(this.Owner))
             {
                 if (index.GetRelations()[this.Owner].AtWar && index.GetRelations()[this.Owner].ActiveWar != null)
-                    ++index.GetRelations()[this.Owner].ActiveWar.ColoniestWon;
+                    ++index.GetRelations()[this.Owner].ActiveWar.ColoniesWon;
             }
             else if (this.Owner.GetRelations().ContainsKey(index) && this.Owner.GetRelations()[index].AtWar && this.Owner.GetRelations()[index].ActiveWar != null)
                 ++this.Owner.GetRelations()[index].ActiveWar.ColoniesLost;

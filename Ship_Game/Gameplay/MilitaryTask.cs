@@ -1,3 +1,4 @@
+//class imports
 using Microsoft.Xna.Framework;
 using Ship_Game;
 using System;
@@ -5,23 +6,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
+//package name
 namespace Ship_Game.Gameplay
 {
+    //"sealed" class modifier prevents other classes from inheriting this class's properties
 	public sealed class MilitaryTask: IDisposable
 	{
 		public bool IsCoreFleetTask;
 
 		public bool WaitForCommand;
+        //Guid is a "struct" : represents some variable data type
+        //  a "struct" is used to encapsulate small groups of related variables, such as the coordinates of a rectangle or the characteristics of an item or an inventory
+        public List<Guid> HeldGoals = new List<Guid>(); 
 
-        public List<Guid> HeldGoals = new List<Guid>();
+		public int Step; //used for?
 
-		public int Step;
+		public Guid TargetPlanetGuid = Guid.Empty; // used for? 
+                                                   // Guide.Empty: A read-only instance of the System.Guid structure whose value is all zeros.
 
-		public Guid TargetPlanetGuid = Guid.Empty;
+        public MilitaryTask.TaskType type; //Conjoined public class property of enumarated variable string:
+                                           /*
+                                           public enum TaskType
+                                           {
+                                               ClearAreaOfEnemies,
+                                               Resupply,
+                                               AssaultPlanet,
+                                               CorsairRaid,
+                                               CohesiveClearAreaOfEnemies,
+                                               Exploration,
+                                               DefendSystem,
+                                               DefendClaim,
+                                               DefendPostInvasion,
+                                               GlassPlanet
+                                           }
+                                           */
 
-		public MilitaryTask.TaskType type;
-
-		public Vector2 AO;
+        public Vector2 AO; //specified Area of Operation (AO) in vector space (the game board)
 
 		public float AORadius;
 
@@ -33,94 +53,129 @@ namespace Ship_Game.Gameplay
 
 		public float MinimumTaskForceStrength;
 
-		private Planet TargetPlanet;
+		private Planet TargetPlanet; //planet specification
 
-		public float TaskTimer;
+		public float TaskTimer; //used for?
 
-		private Empire empire;
+		private Empire empire; // faction specification
 
 		public bool IsToughNut;
 
-		public int NeededTroopStrength;
+		public int NeededTroopStrength; //used for?
 
-		private BatchRemovalCollection<Ship> TaskForce = new BatchRemovalCollection<Ship>();
+		private BatchRemovalCollection<Ship> TaskForce = new BatchRemovalCollection<Ship>(); //data structure of Ships
 
-		public int WhichFleet = -1;
+		public int WhichFleet = -1; //index for fleet reference in empire collection
 
         //adding for thread safe Dispose because class uses unmanaged resources 
         private bool disposed;
 
+        //empty constructor
 		public MilitaryTask()
 		{
 		}
-
+        /**
+            Constructor for MilitaryTask class.
+            @param location - vector specifying game board space
+            @param radius - area of operation radius (bounds of military task)
+            @param GoalsToHold - contains Goals
+            @param Owner - the faction to whom the MilitaryTask targets, i.e. the opposition faction
+       
+        */
 		public MilitaryTask(Vector2 location, float radius, List<Goal> GoalsToHold, Empire Owner)
 		{
-			this.type = MilitaryTask.TaskType.ClearAreaOfEnemies;
+			this.type = MilitaryTask.TaskType.ClearAreaOfEnemies; //enumerated value
 			this.AO = location;
 			this.AORadius = radius;
+            //pools GoalsToHold into this MilitaryTask
+            //by "held," the goal is acknowledge as having been accepted for MilitaryTask to fulfill: this.HeldGoals
 			foreach (Goal g in GoalsToHold)
 			{
 				g.Held = true;
 				this.HeldGoals.Add(g.guid);
 			}
+            //KeyValuePair is an enumarted variable type from System.Collections.Generic
+            //A pin is an embedded sublass of ThreatMatrix; containing details on the threat: location, faction, etc.
+            //This "foreach" loop selects all threats in this Empire's recognized threats
 			foreach (KeyValuePair<Guid, ThreatMatrix.Pin> pin in Owner.GetGSAI().ThreatMatrix.Pins)
 			{
-				if (Vector2.Distance(this.AO, pin.Value.Position) >= this.AORadius || EmpireManager.GetEmpireByName(pin.Value.EmpireName) == Owner)
+                //if threat is outside the area of operation (AO), ignore it
+                //"contine" increments the loop to the next threat (pin)
+                if (Vector2.Distance(this.AO, pin.Value.Position) >= this.AORadius || EmpireManager.GetEmpireByName(pin.Value.EmpireName) == Owner) 
 				{
 					continue;
 				}
+                //declare new MilitaryTask, assign it equal to this current instance of MiliTaryTask
+                //what is the purpose of assigning initial enemy strength, and enemy strenght?
 				MilitaryTask initialEnemyStrength = this;
 				initialEnemyStrength.InitialEnemyStrength = initialEnemyStrength.InitialEnemyStrength + pin.Value.Strength;
 				MilitaryTask enemyStrength = this;
 				enemyStrength.EnemyStrength = enemyStrength.EnemyStrength + pin.Value.Strength;
 			}
-            this.MinimumTaskForceStrength = this.EnemyStrength *.75f;
-			this.empire = Owner;
+            //what is MinimumTaskForceStrength used for?
+            //minimum task force must be at least 75% of enemy strength
+            //convential military doctrine requires 3:1 Attackers:Defenders advantage for minimal success potential
+            this.MinimumTaskForceStrength = this.EnemyStrength * 3f;//*.75f; //why by 75%?
+                                                                    //Ermenildo V. Castro, Jr.
+                                                                    //07/25/15
+                                                                    //Altered to "* 3f", instead of original  "* .75f"
+			this.empire = Owner; //Empire specifies the opposition faction
 		}
-
+        //Overloaded constructor
 		public MilitaryTask(Planet target, Empire Owner)
 		{
 			this.type = MilitaryTask.TaskType.AssaultPlanet;
 			this.TargetPlanet = target;
-			this.TargetPlanetGuid = target.guid;
+			this.TargetPlanetGuid = target.guid; //Guid = Gui id?
 			this.AO = target.Position;
-			this.AORadius = 35000f;
-			this.empire = Owner;
+			this.AORadius = 35000f; //constant planet radius; should be a declared planet constant property. Sloppy.
+			this.empire = Owner; //Empire specifies the opposition faction
 		}
-
+        //Overloaded constructor
 		public MilitaryTask(Empire Owner)
 		{
 			this.empire = Owner;
 		}
-
+        /**
+            This method allocates any available manpower into a TaskForce for offensive measures; and de-allocates the TaskForce from other fleet contingents.
+            Deprecated? --> DOToughtNutRequisition?
+        */
 		private void DoToughNutRequisitionORIG()
 		{
 			float EnemyTroopStr = this.GetEnemyTroopStr();
 			float EnemyShipStr = this.GetEnemyStrAtTarget();
+            //create collection of sorted AOs
 			IOrderedEnumerable<Ship_Game.Gameplay.AO> sorted = 
-				from ao in this.empire.GetGSAI().AreasOfOperations
+				from ao in this.empire.GetGSAI().AreasOfOperations //foreach AO, order by enemy & distance, then "select" for addition into collection
 				orderby Vector2.Distance(this.AO, ao.Position)
 				select ao;
+            //if target is empty, AO's absent, exit method call
 			if (sorted.Count<Ship_Game.Gameplay.AO>() == 0)
 			{
 				return;
 			}
+            //else, there are targets
 			List<Ship> Bombers = new List<Ship>();
 			List<Ship> EverythingElse = new List<Ship>();
 			List<Troop> Troops = new List<Troop>();
+            //calculate this faction's strength
 			foreach (Ship_Game.Gameplay.AO area in sorted)
 			{
+                //claculate opposition fleet strength
 				foreach (Ship ship in this.empire.GetShips())
 				{
-					if (ship.GetStrength() == 0f 
+                    //if ship in ships in AO are null, or outside area of operation, or in combat , or in defensive DefensiveForcePool, increment to next ship
+                    //(unavilable to be requisitioned for offense)
+                    if (ship.GetStrength() == 0f 
                         || Vector2.Distance(ship.Center, area.Position) >= area.Radius 
                         || ship.InCombat 
                         || ship.fleet != null 
                         || this.empire.GetGSAI().DefensiveCoordinator.DefensiveForcePool.Contains(ship))// ship.GetAI().SystemToDefend !=null) //&& ship.fleet != null & ship.fleet.Task == null)
+                                                                                                        //ships managed by the DefensiveCoordinator or unable to be re-allocated for offense
 					{
 						continue;
 					}
+                    //for valid ships in this faction's empire
 					if (ship.BombBays.Count <= 0)
 					{
 						EverythingElse.Add(ship);
@@ -130,6 +185,7 @@ namespace Ship_Game.Gameplay
 						Bombers.Add(ship);
 					}
 				}
+                //claculate ground troops that may be allocated for offensive
 				foreach (Planet p in area.GetPlanets())
 				{
 					if (p.RecentCombat)
@@ -146,26 +202,30 @@ namespace Ship_Game.Gameplay
 					}
 				}
 			}
+            //determine TaskForce to match calculated opposition strength
 			List<Ship> TaskForce = new List<Ship>();
 			float strAdded = 0f;
-			List<Ship>.Enumerator enumerator = EverythingElse.GetEnumerator();
+			List<Ship>.Enumerator enumerator = EverythingElse.GetEnumerator(); //enumerator returns position information
 			try
 			{
 				do
 				{
-					if (!enumerator.MoveNext())
+                    // Returns:
+                    //     true if the enumerator was successfully advanced to the next element; false if
+                    //     the enumerator has passed the end of the collection.
+                    if (!enumerator.MoveNext())
 					{
 						break;
 					}
 					Ship ship = enumerator.Current;
-					TaskForce.Add(ship);
-					strAdded = strAdded + ship.GetStrength();
+					TaskForce.Add(ship); //add ships that are idle (without destination ~ MoveNext)
+					strAdded = strAdded + ship.GetStrength(); //sum the strength of the task force
 				}
-				while (strAdded <= EnemyShipStr );//* 1.65f);
+				while (strAdded <= EnemyShipStr );//* 1.65f); //continue requisitoining ships until TaskForceStrength is greater than EnemyShipStr
 			}
 			finally
 			{
-				((IDisposable)enumerator).Dispose();
+				((IDisposable)enumerator).Dispose(); //de-allocate object
 			}
 			List<Ship> BombTaskForce = new List<Ship>();
 			int numBombs = 0;
@@ -173,7 +233,7 @@ namespace Ship_Game.Gameplay
 			{
 				if (numBombs >= 20)
 				{
-					continue;
+					continue; //bomber fleet should consist of at max twenth bombers
 				}
 				BombTaskForce.Add(ship);
 				numBombs = numBombs + ship.BombBays.Count;
@@ -195,13 +255,17 @@ namespace Ship_Game.Gameplay
 					PotentialTroops.Add(t);
 					troopStr = troopStr + t.Strength;
 				}
-				while (troopStr <= EnemyTroopStr * 1.25f || numOfTroops <15 );
+				while (troopStr <= EnemyTroopStr * 1.25f || numOfTroops <15 ); //create sufficient ground force for offensive action
 			}
 			finally
 			{
 				((IDisposable)enumerator1).Dispose();
 			}
-			if (strAdded > EnemyShipStr * 1.65f)
+            //if this faction ship strength is greater than opposition 160% of opposition
+            //Ermenildo V. Castro, Jr.
+            //07/25/15
+            //"* 1.65f" --> "* 3f"
+            if (strAdded > EnemyShipStr * 3f)//1.65f)
 			{
 				if (this.TargetPlanet.Owner == null || this.TargetPlanet.Owner != null && !this.empire.GetRelations().ContainsKey(this.TargetPlanet.Owner))
 				{
@@ -212,18 +276,20 @@ namespace Ship_Game.Gameplay
 				{
 					this.empire.GetGSAI().DeclareWarOn(this.TargetPlanet.Owner, this.empire.GetRelations()[this.TargetPlanet.Owner].PreparingForWarType);
 				}
+                //retrieve closest area of operations target
 				Ship_Game.Gameplay.AO ClosestAO = sorted.First<Ship_Game.Gameplay.AO>();
-				MilitaryTask assault = new MilitaryTask(this.empire)
-				{
+                //create assault MilitaryTask
+				MilitaryTask assault = new MilitaryTask(this.empire) //declarative property instantiation, constructor supplement
+                {
 					AO = this.TargetPlanet.Position,
 					AORadius = 75000f,
 					type = MilitaryTask.TaskType.AssaultPlanet
-				};
+				}; 
 				ClosestAO.GetCoreFleet().Owner.GetGSAI().TasksToAdd.Add(assault);
-				assault.WhichFleet = ClosestAO.WhichFleet;
+				assault.WhichFleet = ClosestAO.WhichFleet; //assault fleet, WhichFleet, is assigned the fleet closest to target AO
 				ClosestAO.GetCoreFleet().Task = assault;
 				assault.IsCoreFleetTask = true;
-				assault.Step = 1;
+				assault.Step = 1; //Step, used for?
 				assault.TargetPlanet = this.TargetPlanet;
 				ClosestAO.GetCoreFleet().TaskStep = 0;
 				ClosestAO.GetCoreFleet().Name = "Doom Fleet";
@@ -231,10 +297,10 @@ namespace Ship_Game.Gameplay
 				{
 					if (ship.fleet != null)
 					{
-						ship.fleet.Ships.Remove(ship);
+						ship.fleet.Ships.Remove(ship); //remove ship from global empire fleet pool
 					}
-					ship.GetAI().OrderQueue.Clear();
-                    this.empire.GetGSAI().DefensiveCoordinator.remove(ship);
+					ship.GetAI().OrderQueue.Clear(); //ship, rescind previous orders
+                    this.empire.GetGSAI().DefensiveCoordinator.remove(ship); //remove ship from defensive coordinator pool
                     //foreach (KeyValuePair<SolarSystem, SystemCommander> entry in this.empire.GetGSAI().DefensiveCoordinator.DefenseDict)
                     //{
 						
@@ -254,12 +320,14 @@ namespace Ship_Game.Gameplay
                             
                     //    }
                     //}
-					ship.fleet = null;
+					ship.fleet = null; //ship is unassigned to any fleet
 				}
+                //ASSIGN SHIPS
 				foreach (Ship ship in TaskForce)
 				{
-					ClosestAO.GetCoreFleet().AddShip(ship);
+					ClosestAO.GetCoreFleet().AddShip(ship); //TaskForce ship is added into the core fleet
 				}
+                //ASSIGN GROUND TROOPS
 				foreach (Troop t in PotentialTroops)
 				{
 					if (t.GetPlanet() == null)
@@ -267,15 +335,16 @@ namespace Ship_Game.Gameplay
 						continue;
 					}
 					(new List<Troop>()).Add(t);
-					Ship launched = t.Launch();
-					ClosestAO.GetCoreFleet().AddShip(launched);
+					Ship launched = t.Launch(); //launch troop from ground
+					ClosestAO.GetCoreFleet().AddShip(launched); //add troop transport into core fleet
 				}
 				ClosestAO.GetCoreFleet().AutoArrange();
+                //ASSIGN BOMBERS
 				if (Bombers.Count > 0 && numBombs > 6)
 				{
-					MilitaryTask GlassPlanet = new MilitaryTask(this.empire)
-					{
-						AO = this.TargetPlanet.Position,
+					MilitaryTask GlassPlanet = new MilitaryTask(this.empire) //task this empire to glass opposition planet
+					{ //multiple properties assignment declaration
+						AO = this.TargetPlanet.Position,//the target planet
 						AORadius = 75000f,
 						type = MilitaryTask.TaskType.GlassPlanet,
 						TargetPlanet = this.TargetPlanet,
@@ -307,25 +376,33 @@ namespace Ship_Game.Gameplay
 					}
 					bomberFleet.AutoArrange();
 				}
-				this.Step = 1;
-				this.empire.GetGSAI().TaskList.QueuePendingRemoval(this);
+				this.Step = 1; //What is step for?
+				this.empire.GetGSAI().TaskList.QueuePendingRemoval(this); //remove this MilitaryTask from queue
 			}
 		}
 
+        /**
+            Variant of DoToughNutRequisitionORGI
+
+        */
         private void DoToughNutRequisition()
         {
             float EnemyTroopStr = this.GetEnemyTroopStr();
             float EnemyShipStr = this.GetEnemyStrAtTarget();
+            //sorted area of operations by this.empire strength > opposition strength at target
+            //  & sorted by nearest distance AO
             IOrderedEnumerable<AO> sorted =
                 from ao in this.empire.GetGSAI().AreasOfOperations
                 //orderby ao.GetOffensiveForcePool().Sum(bombs => bombs.BombBays.Count) > 0 descending
-                orderby ao.GetOffensiveForcePool().Where(combat=> !combat.InCombat).Sum(strength => strength.BaseStrength) >= this.MinimumTaskForceStrength descending
+                orderby ao.GetOffensiveForcePool().Where(combat => !combat.InCombat).Sum(strength => strength.BaseStrength) >= this.MinimumTaskForceStrength descending
                 orderby Vector2.Distance(this.AO, ao.Position)
                 select ao;
+            
             if (sorted.Count<AO>() == 0)
             {
-                return;
+                return;//a target is unavailable
             }
+            //a target is available
             List<Ship> Bombers = new List<Ship>();
             List<Ship> EverythingElse = new List<Ship>();
             List<Troop> Troops = new List<Troop>();
@@ -382,7 +459,7 @@ namespace Ship_Game.Gameplay
                     TaskForce.Add(ship);
                     strAdded = strAdded + ship.GetStrength();
                 }
-                while (strAdded <= EnemyShipStr * 1.65f);
+                while (strAdded <= EnemyShipStr * 3f);//1.65f); //Ermenildo V. Castro, Jr. 07/25/15
             }
             finally
             {
@@ -407,7 +484,7 @@ namespace Ship_Game.Gameplay
             {
                 do
                 {
-                    if (numOfTroops >15||!enumerator1.MoveNext() )
+                    if (numOfTroops > 15 || !enumerator1.MoveNext())
                     {
                         break;
                     }
@@ -416,13 +493,13 @@ namespace Ship_Game.Gameplay
                     PotentialTroops.Add(t);
                     troopStr = troopStr + (float)t.Strength;
                 }
-                while (troopStr <= EnemyTroopStr * 1.25f );
+                while (troopStr <= EnemyTroopStr * 3f);//1.25f ); //Ermenildo V. Castro, Jr. 07/25/15
             }
             finally
             {
                 ((IDisposable)enumerator1).Dispose();
             }
-            if (strAdded > EnemyShipStr * 1.65f)
+            if (strAdded > EnemyShipStr * 3f)//1.65f) //Ermenildo V. Castro, Jr. 07/25/15
             {
                 if (this.TargetPlanet.Owner == null || this.TargetPlanet.Owner != null && !this.empire.GetRelations().ContainsKey(this.TargetPlanet.Owner))
                 {
@@ -547,7 +624,10 @@ namespace Ship_Game.Gameplay
                 this.empire.GetGSAI().TaskList.QueuePendingRemoval(this);
             }
         }
-
+        /**
+            Ends the current military task.
+            De-allocates manpower from the current task, and re-allocates manpower to the general force pool of empire
+        */
 		public void EndTask()
 		{
 			//if(UniverseScreen.debug)
@@ -671,13 +751,13 @@ namespace Ship_Game.Gameplay
 					}
 					foreach (Troop t in toLaunch)
 					{
-						Ship troopship = t.Launch();
+						Ship troopship = t.Launch(); 
 						if (troopship == null)
 						{
 							continue;
 						}
-						troopship.GetAI().OrderRebaseToNearest();
-					}
+						troopship.GetAI().OrderRebaseToNearest(); //land troop
+                    }
 					toLaunch.Clear();
 				}
 			}

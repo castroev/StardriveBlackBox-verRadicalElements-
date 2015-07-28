@@ -4593,7 +4593,7 @@ namespace Ship_Game.Gameplay
 		}
 
 
-        //added by Gremlin Deveks Get a shio
+        //added by Gremlin Deveks Get a ship
         private string GetAShip(float Capacity)
         {
             string name;
@@ -6929,7 +6929,8 @@ namespace Ship_Game.Gameplay
         //added by gremlin deveksmod military planner
         private void RunMilitaryPlanner()
         {
-                     float SizeLimiter = GlobalStats.MemoryLimiter;
+
+         float SizeLimiter = GlobalStats.MemoryLimiter;
          int ShipCountLimit = GlobalStats.ShipCountLimit;
             List<AO>.Enumerator enumerator;
             if(!this.empire.MinorRace)

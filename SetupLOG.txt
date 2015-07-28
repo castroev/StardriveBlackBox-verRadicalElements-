@@ -52,7 +52,7 @@ Crunchy Gremlin: so again the options are.
 Crunchy Gremlin: STEAM ALTERTHREAD PERF AUTOTIME PLAYERONLY
 Crunchy Gremlin: for long haul testing you want.
 Crunchy Gremlin: STEAM ALTERTHREAD PERF AUTOTIME
-Crunchy Gremlin: :)
+Crunchy Gremlin: :) Debug-mode, in-game: Left Ctrl + Shift + ~ 
 Crunchy Gremlin: ok now on to the actual important stuff.
 YoyoXyz: :D
 Crunchy Gremlin: make sure debug is checked

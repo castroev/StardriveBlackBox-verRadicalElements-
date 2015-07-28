@@ -235,7 +235,7 @@ namespace Ship_Game.Gameplay
         }
 
         
-
+        //embedded subclass
 		public class Pin
 		{
 

@@ -26,7 +26,7 @@ namespace Ship_Game
 
 		public float TroopsLost;
 
-		public int ColoniestWon;
+		public int ColoniesWon;
 
 		public int ColoniesLost;
 
