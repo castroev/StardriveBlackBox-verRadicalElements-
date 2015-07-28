@@ -21,9 +21,9 @@ namespace Ship_Game.Gameplay
 
 		//private int aiNumSeen;
 
-		public static UniverseScreen universeScreen;
+		public static UniverseScreen universeScreen; //used for?
 
-		public Ship Owner;
+		public Ship Owner; //used for? indicates owner of this ship?
 
 		public GameplayObject Target;
 
@@ -668,35 +668,44 @@ namespace Ship_Game.Gameplay
             this.State = AIState.Combat;
             this.Owner.InCombat = true;
             this.Owner.InCombatTimer = 15f;
+            #region modified 07/28/15
+            float radius = 30000f;                      //Added by Ermenildo V. Castro, Jr.; 07/28/15
+            Vector2 senseCenter = this.Owner.Center;    //Added by Ermenildo V. Castro, Jr.; 07/28/15
 
+            //If there is a target, and the target is inactive
+            //remove inactive target from consideration
             if (this.Target != null && !this.Target.Active)
             {
                 this.Target = null;
-                //if (!this.BadGuysNear)
-                {
-                    this.State = this.DefaultAIState;                 
-                    this.OrderQueue.Clear();                    
-                }
                 this.Intercepting = false;
-                
+                if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
+                {
+                    this.State = this.DefaultAIState;
+                    this.OrderQueue.Clear();
+                    this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
+                }
                 return;
                 
             }
+            //if no target available
             if (this.Target == null )
             {
                 this.Target = null;
-                //if (!this.BadGuysNear)
+                this.Intercepting = false;
+                this.ScanForThreatTimer = 0;
+                if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
                 {
                     this.OrderQueue.Clear();
                     this.State = this.DefaultAIState;
+                    this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
+                   
                 }
-                this.Intercepting = false;
-                this.ScanForThreatTimer = 0;
                 return;
                 
                
             }
-   
+            #endregion
+
             if (this.Owner.Mothership != null && this.Owner.Mothership.Active)
             {
 
@@ -797,6 +806,8 @@ namespace Ship_Game.Gameplay
 
                 }
             }
+            //if this ship does not belong to a fleet
+            #region
             if (this.Owner.fleet == null)
             {
                 switch (this.CombatState)
@@ -848,6 +859,9 @@ namespace Ship_Game.Gameplay
                         }
                 }
             }
+            #endregion
+            //if ship belongs to a fleet
+            #region
             else if (this.Owner.fleet != null)
             {
                 switch (this.CombatState)
@@ -902,6 +916,7 @@ namespace Ship_Game.Gameplay
                     return;
                 this.Owner.InCombat = false;
             }
+            #endregion
         }
 
         //added by gremlin : troops out property        
@@ -5767,43 +5782,53 @@ namespace Ship_Game.Gameplay
         {
 
             RandomThreadMath randomThreadMath;
+            //reset target lists; ScanForTargets "refreshes" lists
             this.BadGuysNear = false;
             this.FriendliesNearby.Clear();
             this.PotentialTargets.Clear();
             this.NearbyShips.Clear();
             //this.TrackProjectiles.Clear();
 
+            //if hasPriorityTarget, and target is null
             if (this.hasPriorityTarget && this.Target == null)
             {
+                //remove boolean  hasPriorityTarget state: target is null
                 this.hasPriorityTarget = false;
+                //this ship has queued target orders
                 if (this.TargetQueue.Count > 0)
                 {
                     this.hasPriorityTarget = true;
-                    this.Target = this.TargetQueue.First<Ship>();
+                    this.Target = this.TargetQueue.First<Ship>();// dequeue
                 }
             }
+            //ship has a target
             if (this.Target != null)
             {
+                //ship cannot friendly-fire
                 if ((this.Target as Ship).loyalty == this.Owner.loyalty)
                 {
                     this.Target = null;
                     this.hasPriorityTarget = false;
                 }
 
-
-                else if (
-                    !this.Intercepting && (this.Target as Ship).engineState == Ship.MoveState.Warp) //||((double)Vector2.Distance(Position, this.Target.Center) > (double)Radius ||
+                //target ship is hostile & at warp & not currently intercepted
+                //disengage pursuit
+                else if (!this.Intercepting && (this.Target as Ship).engineState == Ship.MoveState.Warp) //||((double)Vector2.Distance(Position, this.Target.Center) > (double)Radius ||
                 {
+                    //remove target from consideration
                     this.Target = (GameplayObject)null;
+                    //ship does not have priority order 
+                    //& ship does not belong to player (I assume this exists to allow the Human Player to target units at warp; thus make exception case)
+                    //return ship to AIState.AwaitingOrders
                     if (!this.HasPriorityOrder && this.Owner.loyalty != ArtificialIntelligence.universeScreen.player)
                         this.State = AIState.AwaitingOrders;
-                    return (GameplayObject)null;
+                    return (GameplayObject)null; 
                 }
             }
             this.CombatAI.PreferredEngagementDistance = this.Owner.maxWeaponsRange * 0.66f;
-            SolarSystem thisSystem = this.Owner.GetSystem();
-            
+            SolarSystem thisSystem = this.Owner.GetSystem(); //determine system this ship currently occupies
             {
+                #region Ship Escort Logic
                 if (this.EscortTarget != null && this.EscortTarget.Active && this.EscortTarget.GetAI().Target != null)
                 {
                     ArtificialIntelligence.ShipWeight sw = new ArtificialIntelligence.ShipWeight();
@@ -5851,17 +5876,27 @@ namespace Ship_Game.Gameplay
 
                     }
                 }
+                #endregion
             }
-            if (this.Target != null && !this.Target.Active)
+            //if target is !null but inactive
+            //set inactive target to null; reset hasPriorityTarget boolean
+            if (this.Target != null && !this.Target.Active) //What is the "Active" boolean used for?
             {
                 this.Target = null;
                 this.hasPriorityTarget = false;
             }
+            //if target is !null, and active, and priority this ship has priority target
             else if (this.Target != null && this.Target.Active && this.hasPriorityTarget)
             {
+                //if at war with target ship
+                //this.Owner.loyalty.isFaction   : a hostile?
                 if (this.Owner.loyalty.GetRelations()[(this.Target as Ship).loyalty].AtWar || this.Owner.loyalty.isFaction || (this.Target as Ship).loyalty.isFaction)
                 {
-                    //this.PotentialTargets.Add(this.Target as Ship);
+                    //this.PotentialTargets.Add(this.Target as Ship); //why was this commented out? To be replaced with targetQueue?
+                    this.TargetQueue.Add(this.Target as Ship); //added by Ermenildo V. Castro, Jr.
+                                                               //07/28/15
+                                                               //Perhaps unnecessary since the method returns this.Target
+                                                               //Whichever invokes ScanForCombatTargets may already add this Target to the TargetQueue, therefore redundant method call.
                     this.BadGuysNear = true;
                 }
                 return this.Target;
@@ -5969,6 +6004,7 @@ namespace Ship_Game.Gameplay
             foreach (ArtificialIntelligence.ShipWeight nearbyShip in this.NearbyShips )
             //Parallel.ForEach(this.NearbyShips, nearbyShip =>
             {
+                //opposition ship
                 if (nearbyShip.ship.loyalty != this.Owner.loyalty)
                 {
                     if (nearbyShip.ship.Weapons.Count ==0)
@@ -6074,7 +6110,7 @@ namespace Ship_Game.Gameplay
             if (this.Owner.Weapons.Count > 0 || this.Owner.GetHangars().Count > 0)
                 return this.Target;          
             return null;
-        }
+        } //end ScanForTargets method
 
         private void SetCombatStatus(float elapsedTime)
         {

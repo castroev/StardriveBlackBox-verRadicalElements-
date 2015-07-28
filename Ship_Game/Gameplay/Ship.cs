@@ -110,7 +110,7 @@ namespace Ship_Game.Gameplay
         public float WarpDraw;
         public string Name;
         public float DamageModifier;
-        public Empire loyalty;
+        public Empire loyalty; //used for? indicates this loyalty to; specifies friendly empire?
         public int Size;
         public int CrewRequired;
         public int CrewSupplied;

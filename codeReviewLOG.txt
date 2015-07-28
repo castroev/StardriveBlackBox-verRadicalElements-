@@ -1,0 +1,66 @@
+Ermenildo V. Castro, Jr.
+------------------------
+
+ArtificialIntelligence.cs
+Potential Bugs:
+**************************
+lines [5887-5888]
+//this.PotentialTargets.Add(this.Target as Ship); //why was this commented out? To be replaced with targetQueue?
+                    this.BadGuysNear = true;
+					
+lines [675, 689]
+//if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
+
+ArtificialIntelligence.cs
+Potential Bugs:
+**************************
+lines [5887-5888]
+//this.PotentialTargets.Add(this.Target as Ship); //why was this commented out? To be replaced with targetQueue?
+                    this.BadGuysNear = true;
+					
+lines [675, 689]
+//if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
+
+------------------CHANGES MADE TO FILE----------------------------------
+After simulating at ~800 ships for 30min, and inspecting ships entering & exiting combat, the observed gameplay glitch seemed absent. It may be the case that the gameplay glitch occurs intermittently, after a specific command execution order, but without a detailed error log, I am unable to replicate the glitch.
+-------------------------------------------------------------------------------------
+
+ #region modified 07/28/15
+
+
+            float radius = 30000f;                      //Added by Ermenildo V. Castro, Jr.; 07/28/15
+            Vector2 senseCenter = this.Owner.Center;    //Added by Ermenildo V. Castro, Jr.; 07/28/15
+
+            //If there is a target, and the target is inactive
+            //remove inactive target from consideration
+            if (this.Target != null && !this.Target.Active)
+            {
+                this.Target = null;
+                this.Intercepting = false;
+                if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
+                {
+                    this.State = this.DefaultAIState;
+                    this.OrderQueue.Clear();
+                    this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
+                }
+                return;
+                
+            }
+            //if no target available
+            if (this.Target == null )
+            {
+                this.Target = null;
+                this.Intercepting = false;
+                this.ScanForThreatTimer = 0;
+                if (!this.BadGuysNear) //Modified by Ermenildo V. Castro, Jr; 07/28/15: re-instated commented out conditional
+                {
+                    this.OrderQueue.Clear();
+                    this.State = this.DefaultAIState;
+                    this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
+                   
+                }
+                return;
+                
+               
+            }
+            #endregion
