@@ -85,7 +85,7 @@ namespace Ship_Game.Gameplay
 
 		private float DistanceLast;
 
-		public bool HasPriorityOrder;
+		public bool HasPriorityOrder; //used to determine if there exists a "PriorityOrder" in the OrderQueue
 
 		private Vector2 negativeRotation = Vector2.One;
 
@@ -683,6 +683,7 @@ namespace Ship_Game.Gameplay
                     this.State = this.DefaultAIState;
                     this.OrderQueue.Clear();
                     this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
+                    if (Target != null) { this.PotentialTargets.Add((Ship)Target); }
                 }
                 return;
                 
@@ -698,7 +699,8 @@ namespace Ship_Game.Gameplay
                     this.OrderQueue.Clear();
                     this.State = this.DefaultAIState;
                     this.Target = this.ScanForCombatTargets(senseCenter, radius); //Modified by Modified by Ermenildo V. Castro, Jr; 07/28/15; //this.Target = null;
-                   
+                    if (Target != null) { this.PotentialTargets.Add((Ship)Target); }
+
                 }
                 return;
                 
@@ -3429,8 +3431,6 @@ namespace Ship_Game.Gameplay
 			this.OrderQueue.AddLast(stop);
 		}
 
-	
-
 		public void OrderAttackSpecificTarget(Ship toAttack)
 		{
 			this.TargetQueue.Clear();
@@ -3478,15 +3478,19 @@ namespace Ship_Game.Gameplay
 			}
 		}
 
-		public void OrderBombardPlanet(Planet toBombard)
+        /**
+            This method orders this ship to bombard the specified planet.
+            @param toBombard - the planet that this ship is directed to bombard.
+        */
+        public void OrderBombardPlanet(Planet toBombard)
 		{
 			lock (this.wayPointLocker)
 			{
 				this.ActiveWayPoints.Clear();
 			}
-			this.State = AIState. Bombard;
+			this.State = AIState.Bombard;
 			this.Owner.InCombatTimer = 15f;
-			this.OrderQueue.Clear();
+			this.OrderQueue.Clear(); //rescind any current directives before adding "bombard" directive to order queue
 			this.HasPriorityOrder = true;
 			ArtificialIntelligence.ShipGoal combat = new ArtificialIntelligence.ShipGoal(ArtificialIntelligence.Plan.Bombard, Vector2.Zero, 0f)
 			{
@@ -3494,7 +3498,11 @@ namespace Ship_Game.Gameplay
 			};
 			this.OrderQueue.AddLast(combat);
 		}
-
+        /**
+           This method orders this ship to bombard the specified planet
+           @param toBombard - the planet that this ship is directed to bombard.
+           
+       */
         public void OrderBombardTroops(Planet toBombard)
         {
             lock (this.wayPointLocker)
@@ -7217,9 +7225,15 @@ namespace Ship_Game.Gameplay
                                 break;
                             }
                         case ArtificialIntelligence.Plan.Bombard:
-                            target = toEvaluate.TargetPlanet;
+                            //target = toEvaluate.TargetPlanet; //Modified by Ermenildo V. Castro, Jr.; 07/29/15: Removed redunant statement, assignment occurs before SWITCH
                             if (this.Owner.Ordinance < 0.05* this.Owner.OrdinanceMax
-                                || (target.BuildingList.Count == 0 && target.TroopsHere.Count == 0  && target.Population <0f)
+                                || (target.TroopsHere.Count <= target.TroopsHere.Count * .40f  || target.Population <= target.Population * .10f) //Legacy Code: (target.BuildingList.Count == 0 && target.TroopsHere.Count == 0  && target.Population <0f)
+                                                                                                                              //Modified by Ermenildo V. Castro, Jr. for Issue #488
+                                                                                                                              //Issue #488:
+                                                                                                                              //The ai needs to soften planets more for invasion but try not to kill all the populace
+                                                                                                                              //Modified conditional to reflect goals for Issue #488:
+                                                                                                                              //        - Stop bombarding if planet population is less than 10% of the original target population
+                                                                                                                              //        - Stop bombarding if opposition troops are attrited by at least 60%, id est: target troops less than 40% of original troop count
                                 || target.GetGroundStrengthOther(this.Owner.loyalty) * 1.5
                                 <= target.GetGroundStrength(this.Owner.loyalty)
                                 )
@@ -7231,7 +7245,7 @@ namespace Ship_Game.Gameplay
                             }
                             this.DoOrbit(toEvaluate.TargetPlanet, elapsedTime);
                             float radius = toEvaluate.TargetPlanet.ObjectRadius + this.Owner.Radius + 1000;
-                            if (toEvaluate.TargetPlanet.Owner == this.Owner.loyalty)
+                            if (toEvaluate.TargetPlanet.Owner == this.Owner.loyalty) //cannot bombard friednly planets
                             {
                                 this.OrderQueue.Clear();
                                 return;

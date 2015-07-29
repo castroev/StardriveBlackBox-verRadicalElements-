@@ -1,0 +1,5 @@
+Merge 
+Issue Resolution: Ship idles in "Awaiting Orders State," and refuses new directives.
+Resolved through calling "ScanForCombatTargets" in the DoCombat method if the current Target is null, and re-organized logical structure of OrderQueue.clear(); ArtificialIntelligence.cs
+
+Comments from code review interspersed.
